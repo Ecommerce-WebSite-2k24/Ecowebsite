@@ -2,18 +2,18 @@ const connection = require('../../database/index')
 const { Sequelize, DataTypes } = require("sequelize");
 
 const productSchema = {
-id:{
-    type:DataTypes.STRING,
+prodId:{
+    type:DataTypes.INTEGER,
     autoIncrement: true,
-    primaryKey:true
+        primaryKey: true
 },
 name:{
     type:DataTypes.STRING,
-    allowNull:false,
+    allowNull:false
 },
 description:{
     type:DataTypes.STRING,
-    allowNull:false,
+    allowNull:false
 },
 price:{
     type:DataTypes.INTEGER,
@@ -28,8 +28,8 @@ images:{
     allowNull:false,
     }
 }
-console.log(connection)
-const Product= connection.define("products",productSchema)
+
+const Product= connection.define("product",productSchema)
 connection.sync({alter: true})
 
 const fetechAll=()=>{
