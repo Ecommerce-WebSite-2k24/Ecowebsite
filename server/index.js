@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors')
+const con=require('../database/index')
+const User = require('../database/Models/User')
 const PORT = 3000
 const app = express()
 
