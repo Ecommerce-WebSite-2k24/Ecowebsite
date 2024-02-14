@@ -14,15 +14,15 @@ const User = connection.define("user", {
     },
     firstName:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     },
     lastName:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     },
     age:{
         type:DataTypes.INTEGER,
-        allowNull:false
+        allowNull:true
     },
     email: {
         type:DataTypes.STRING,
