@@ -1,14 +1,18 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import ClientSide from './components/ClientSide';
+// import ClientSide from './components/ClientSide';
+import Product from './components/Product.jsx';
 
 function App() {
   return (
     <div className="App">
       <header>
-        <a href="/editprofil">Client</a>
+
+        <Product/>
+        {/* <a href="/editprofil">Client</a> */}
 <BrowserRouter>
 <Routes>
-  <Route path='editprofil' element={<ClientSide/>}/>
+{/* <Route path='/Product' element={<Product/>}/> */}
+  {/* <Route path='editprofil' element={<ClientSide/>}/> */}
 </Routes>
 </BrowserRouter>
       </header>
