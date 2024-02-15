@@ -13,16 +13,16 @@ const Categories = () => {
         <div class="gap-20">
             <div class="flex mt-2 gap-6">
                 <img  class="h-10 w-15 " src={rectangle} alt="" />
-                <h1 class="text-black font-bold text-xl	">Categories</h1>
-            </div>
+                <h1 class="text-red-500 font-bold text-xl	">Categories</h1>
+            </div> 
             <h1 class="text-black font-bold text-4xl	">Browse By Category</h1>
-            <div class="flex justify-center w-fill h-60">
-                <a href=""><img class="h-60 p-4" src={phone} alt="" /></a>
-                <a href=""><img class="h-60 p-4" src={computer} alt="" /></a>
-                <a href=""><img class="h-60 p-4" src={smartwatch} alt="" /></a>
-                <a href=""><img class="h-60 p-4" src={camera} alt="" /></a>
-                <a href=""><img class="h-60 p-4" src={headphones} alt="" /></a>
-                <a href=""><img class="h-60 p-4" src={gaming} alt="" /></a>
+            <div class="flex justify-center w-fill h-60 mt-10">
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={phone} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={computer} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={smartwatch} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={camera} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={headphones} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={gaming} alt="" /></a>
             </div>     
         </div>
     </div>

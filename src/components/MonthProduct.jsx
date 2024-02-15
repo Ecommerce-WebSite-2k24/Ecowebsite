@@ -9,7 +9,7 @@ const MonthProduct = () => {
         <div class="gap-20">
             <div class="flex mt-2 gap-8">
                 <img  class="h-10 w-15 " src={rectangle} alt="" />
-                <h1 class="text-black font-bold text-xl	">This Month</h1>
+                <h1 class="text-red-500 font-bold text-xl	">This Month</h1>
             </div>
             <h1 class="text-black font-bold text-4xl">Best Selling Products</h1>
             <div class="flex p-8">
