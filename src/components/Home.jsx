@@ -16,7 +16,7 @@ const Home = ({images}) => {
   };
   return (
     <div class="flex w-4/5 mt-20 p-6 mx-auto">
-      <ul class="flex flex-col w-80 max-w-[400px] mx-40 mt-0">
+      <ul class="flex flex-col w-80 max-w-[400px] mx-20 mt-0">
         <li>
           <details class="group">
             <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
@@ -113,7 +113,7 @@ const Home = ({images}) => {
           </details>
         </li>
       </ul>
-      <div className="overflow-hidden relative w-fill mt-0 h-[400px] ">
+      <div className="overflow-hidden relative w-[900px] mt-0 h-[400px] ">
         <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {images.map((image, index) => (
             <img key={index} src={image} alt={`Slide ${index}`} className="w-full" />
