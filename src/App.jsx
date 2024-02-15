@@ -3,6 +3,8 @@ import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ClientSide from './components/ClientSide';
+import Login from "./components/Login.jsx";
+import Signup from "./components/Signup.jsx";
 import Contact from "./components/Contact.jsx";
 import About from "./components/About.jsx";
 import Cart from "./components/Cart.jsx";
@@ -48,7 +50,11 @@ useEffect(()=>{
        
 <BrowserRouter>
 <Routes>
-  <Route path='/' element={<Home/>}/>
+  <Route path='editprofil' element={<ClientSide/>}/>
+  <Route path="/signup" element={<Signup/>}/>
+  <Route path="/login" element={<Login/>}/>
+
+  <Route path='/home' element={<Home/>}/>
   <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
