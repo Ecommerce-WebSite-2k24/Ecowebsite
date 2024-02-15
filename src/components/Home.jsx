@@ -1,9 +1,15 @@
 
 import React, {useState} from 'react'
+import img1 from '../assets/banner1.jpg'
+import img2 from '../assets/banner2.jpg'
+import MonthProduct from './MonthProduct'
+import OurProduct from './OurProducts'
+import Categories from './Categories'
+import OurProducts from './OurProducts'
 
 
-
-const Home = ({images}) => {
+const Home = () => {
+  const images = [img1, img2]
  
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -15,6 +21,7 @@ const Home = ({images}) => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
   return (
+    <>
     <div class="flex w-4/5 mt-20 p-6 mx-auto">
       <ul class="flex flex-col w-80 max-w-[400px] mx-20 mt-0">
         <li>
@@ -131,6 +138,11 @@ const Home = ({images}) => {
       </div>       
 
     </div>
+    <Categories/>
+    <MonthProduct/>
+    <OurProducts/>
+    </>
+  
   )
 }
 
