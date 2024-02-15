@@ -8,6 +8,8 @@ import img2 from './assets/banner2.jpg'
 
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ClientSide from './components/ClientSide';
+import Login from "./components/Login.jsx";
+import Signup from "./components/Signup.jsx";
 import Contact from "./components/Contact.jsx";
 import About from "./components/About.jsx";
 import Cart from "./components/Cart.jsx";
@@ -47,8 +49,11 @@ function App() {
         
 <BrowserRouter>
 <Routes>
+  <Route path='editprofil' element={<ClientSide/>}/>
+  <Route path="/signup" element={<Signup/>}/>
+  <Route path="/login" element={<Login/>}/>
 
-  <Route path='/' element={<Home/>}/>
+  <Route path='/home' element={<Home/>}/>
   <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
