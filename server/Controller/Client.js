@@ -1,18 +1,20 @@
 const db = require('../../database/Models/User')
-
+const bycribt = require("bcrypt");
 module.exports ={
     updateClient: async (req,res)=>{
+   const firstName=req.body.firstName
+   const lastName=req.body.lastName
+   const email=req.body.email
+   const newpwd=req.body.password
         try {
-            const upd = await db.User.update(req.body,{
-                where:{
-                    userId:req.params.userId
-                }
-            })
-            res.status(200).json(upd)
-        }
-        catch(error){
-            res.status(400).send("Eroor")
-        }
+            const hashpwd = await bycribt.hash(newpwd, 10);
+            const upd = db.User.update({firstName:firstName,lastName:lastName,email:email,password:hashpwd},{
+                where:{userId:req.params.userId}
+            });
+            res.status(200).json(upd);
+          } catch (err) {
+            console.log(err);
+          }
 
     },
     getClient : async(req,res) => {
@@ -42,3 +44,6 @@ module.exports ={
             catch (error) {res.send(error) }
         }
     }
+
+    
+      

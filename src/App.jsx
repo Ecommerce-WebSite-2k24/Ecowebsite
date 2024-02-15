@@ -11,24 +11,38 @@ import Admin from "./components/Admin/Admin.jsx";
 import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
-
+import Home from "./components/Home.jsx";
 
 
 
 function App() {
+
+ 
+
+ 
+
+  
+      
+     
+  
   return (
     <div className="App">
-      <Header/>
+
+       <Header/>
+    
+
 
       <header>
-        <div style={{"display":"flex","gap":"1rem"}}>
+        {/* <div style={{"display":"flex","gap":"1rem"}}>
         <a href="/editprofil">Client</a>
         <a href="/cart">cart</a>
         <a href="/wishList">whishlist</a>
-        </div>
-
+        </div> */}
+        
 <BrowserRouter>
 <Routes>
+
+  <Route path='/' element={<Home/>}/>
   <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
