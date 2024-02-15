@@ -8,6 +8,14 @@ const AllPro = async(req,res) => {
 };
 
 
+const AllProSeller = async(req,res) => {
+    try {
+    const result=await Product.findAll({where:{role:req.params.seller}});
+    res.json(result) }
+     catch (error) {res.send(error) }
+};
+
+
 const GetOnePro=async(req,res) => {
     try {
     const result=await Product.findOne({where:{prodId:req.params.prodId}})
