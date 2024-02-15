@@ -2,6 +2,11 @@ import React from "react";
 // import Home from "./components/Home.jsx"
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
+import Categories from './components/Categories.jsx'
+import MonthProduct from "./components/MonthProduct.jsx";
+import OurProducts from "./components/OurProducts.jsx";
+import img1 from './assets/banner1.jpg'
+import img2 from './assets/banner2.jpg'
 
 
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
@@ -15,11 +20,15 @@ import Admin from "./components/Admin/Admin.jsx";
 
 
 function App() {
-
+  const images = [img1, img2]
   return (
     <div className="App">
 
-      <Header/>
+      {/* <Header/>
+      <Home images={images}/>
+      <Categories/>
+      <MonthProduct/>
+      <OurProducts/> */}
 
 
 
