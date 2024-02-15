@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Auth = () => {
+const Inbox = () => {
   return (
     <div>
-      <h1>hi</h1>
+      
     </div>
   )
 }
 
-export default Auth
+export default Inbox
