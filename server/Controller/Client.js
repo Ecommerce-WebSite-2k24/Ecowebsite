@@ -2,17 +2,17 @@ const db = require('../../database/Models/User')
 
 module.exports ={
     updateClient: async (req,res)=>{
+        const firstName = req.body.firstName;
+        const lastName = req.body.lastName;
+        const newpwd = req.body.password;
+        const id = req.params.userId;
         try {
-            const upd = await db.User.update(req.body,{
-                where:{
-                    userId:req.params.userId
-                }
-            })
-            res.status(200).json(upd)
-        }
-        catch(error){
-            res.status(400).send("Eroor")
-        }
+            const hashpwd = await bycribt.hash(newpwd, 10);
+            const result = db.User.update([firstName,lastName, hashpwd, id]);
+            res.status(200).json(result);
+          } catch (err) {
+            console.log(err);
+          }
 
     },
     getClient : async(req,res) => {
@@ -45,3 +45,16 @@ module.exports ={
                 console.log(err) }
         }
     }
+
+    // update: async (req, res) => {
+    //     const newname = req.body.name;
+    //     const newpwd = req.body.pwd;
+    //     const id = req.params.iduser;
+    //     try {
+    //       const hashpwd = await bycribt.hash(newpwd, 10);
+    //       const result = updateU([newname, hashpwd, id]);
+    //       res.status(200).json(result);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   },
