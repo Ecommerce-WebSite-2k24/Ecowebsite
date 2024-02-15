@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState,createContext} from "react";
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
@@ -12,11 +12,18 @@ import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
 import Home from "./components/Home.jsx";
-
-
+import axios from "axios";
 
 function App() {
 
+
+const [clients,setClients]=useState([])
+
+useEffect(()=>{
+  axios.get('http://localhost:3000/client/getAll')
+  .then((res)=>{console.log(res.data);setClients(res.data)})
+  .catch((error)=>{console.log("error")})
+},[])
  
 
  
@@ -38,17 +45,16 @@ function App() {
         <a href="/cart">cart</a>
         <a href="/wishList">whishlist</a>
         </div> */}
-        
+       
 <BrowserRouter>
 <Routes>
-
   <Route path='/' element={<Home/>}/>
   <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/cart' element={<Cart/>}/>
   <Route path='/whishList' element={<WhishList/>}/>
-  <Route path="/admin" element={<Admin/>}/>
+  <Route path="/admin" element={<Admin clients={clients}/>}/>
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
   <Route path="/admin/productInfo" element={<ProductInfo/>}/>
