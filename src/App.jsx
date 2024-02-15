@@ -1,9 +1,6 @@
-
 import React from "react";
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
-
-
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ClientSide from './components/ClientSide';
 import Contact from "./components/Contact.jsx";
@@ -17,14 +14,11 @@ import ProductInfo from "./components/Admin/ProductInfo.jsx";
 
 
 
-function App() {
 
+function App() {
   return (
     <div className="App">
-
       <Header/>
-      
-     
 
       <header>
         <div style={{"display":"flex","gap":"1rem"}}>
@@ -32,7 +26,7 @@ function App() {
         <a href="/cart">cart</a>
         <a href="/wishList">whishlist</a>
         </div>
-        
+
 <BrowserRouter>
 <Routes>
   <Route path='/editprofil' element={<ClientSide/>}/>
@@ -40,8 +34,6 @@ function App() {
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/cart' element={<Cart/>}/>
   <Route path='/whishList' element={<WhishList/>}/>
-
-
   <Route path="/admin" element={<Admin/>}/>
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
@@ -49,6 +41,7 @@ function App() {
 </Routes>
 </BrowserRouter>
       </header>
+
       <Footer/>
     </div>
   );
