@@ -22,8 +22,8 @@ function App() {
 <BrowserRouter>
 <Routes>
   <Route path='editprofil' element={<ClientSide/>}/>
-  <Route path="signup" element={<Signup/>}/>
-  <Route path="login" element={<Login/>}/>
+  <Route path="/signup" element={<Signup/>}/>
+  <Route path="/login" element={<Login/>}/>
 </Routes>
 </BrowserRouter>
       </header>

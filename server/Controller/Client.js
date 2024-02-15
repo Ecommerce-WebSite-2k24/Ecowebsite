@@ -38,7 +38,10 @@ module.exports ={
     addClient:async(req,res)=>{
         try {
             const result=await db.User.create(req.body)
-            res.json(result);console.log(req.body) } 
-            catch (error) {res.send(error) }
+            res.json(result)
+            console.log(req.body) 
+        } 
+            catch (error) {
+                console.log(err) }
         }
     }

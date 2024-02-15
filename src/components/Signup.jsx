@@ -1,16 +1,17 @@
 import React,{useState} from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginimg from '../assets/loginimg.png'
 const Signup = () => {
-  const [firstName, setfirstName] = useState("");
-    const [lastName, setlastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const[age,setAge]=useState('')
-    const [role, setRole] = useState("");
-    const navigate = useNavigate();
+  const [firstName, setfirstName] = useState("")
+    const [lastName, setlastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const[age,setAge]=useState(0)
+    const [role, setRole] = useState("")
+    console.log(role,firstName,lastName,email,password,age)
+
 
     const signup = () => {
       axios.post('http://localhost:3000/signup', {
@@ -22,14 +23,14 @@ const Signup = () => {
         role: role,
       })
       .then((result) => {
-        Cookies.set('token', result.data.token);
-        console.log('done', result.data.token);
-        navigate('login');
+        Cookies.set('token', result.data.token)
+        console.log('done', result.data.token)
+      
       })
       .catch((err) => {
-        console.log('Error:', err);
-      });
-  };
+        console.log('Error:', err)
+      })
+  }
   return (
     <div>
        <div
@@ -67,7 +68,7 @@ const Signup = () => {
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder="LastName "
                 onChange={(e) => {
-                  setlastName(e.target.value);
+                  setlastName(e.target.value)
                 }}
               />
             </div>
@@ -78,7 +79,7 @@ const Signup = () => {
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" Email "
               onChange={(e) => {
-                setEmail(e.target.value);
+                setEmail(e.target.value)
               }}
             />
           </div>
@@ -107,22 +108,65 @@ const Signup = () => {
           </div>
 
 
-          <select
+          {/* <select
             id="mySelect"
             value={role} 
-            onChange={(e) => setRole(e.target.value)}
+            onChange={(e) => setRole(e.seller.value)}
           >
-            <option value="client">Client</option>
             <option value="seller">Seller</option>
-          </select>
+          </select> */}
+
+<div class="flex items-start"></div>
+              <div class="flex items-start mt-2">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="isClient"
+                      type="checkbox"
+                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                      onChange={() => setRole("Client")}
+                    />
+                  </div>
+                  <label
+                    for="isClient"
+                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    {" "}
+                    Client
+                  </label>
+                </div>
+              </div>
+
+              <div class="flex items-start mt-2">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="isSeller"
+                      type="checkbox"
+                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                      onChange={() => setRole("Seller")}
+                    />
+                  </div>
+                  <label
+                    for="isSeller"
+                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    {" "}
+                    Seller
+                  </label>
+                </div>
+              </div>
+
+
+
 
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button
               type="submit"
               className="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-              onClick={signup}
+              onClick={()=>{signup()}}
             >
-              Confirm
+           <Link to="/login" > Confirm</Link>
             </button>
           </div>
           </div>
