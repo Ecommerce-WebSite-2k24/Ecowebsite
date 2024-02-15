@@ -6,7 +6,8 @@ import Footer from "./components/Footer.jsx"
 
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ClientSide from './components/ClientSide';
-
+import Login from "./components/Login.jsx";
+import Signup from "./components/Signup.jsx";
 
 function App() {
 
@@ -14,17 +15,19 @@ function App() {
     <div className="App">
 
       <Header/>
-      <Footer/>
+   
 
       <header>
         <a href="/editprofil">Client</a>
 <BrowserRouter>
 <Routes>
   <Route path='editprofil' element={<ClientSide/>}/>
+  <Route path="signup" element={<Signup/>}/>
+  <Route path="login" element={<Login/>}/>
 </Routes>
 </BrowserRouter>
       </header>
-
+      <Footer/>
     </div>
   );
 }

@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 require("dotenv").config()
 const secretKey = process.env.JWT_SECRET;
 console.log("secret",secretKey)
-const registerUser = async (req, res) => {
+
+
+const signupUser = async (req, res) => {
     try {
         const { firstName, lastName,password, email, age, role } = req.body
 
@@ -22,7 +24,7 @@ const registerUser = async (req, res) => {
         console.error('Error in registering user:', err);;
     }
 }
-const signInUser = async (req, res) => {
+const loginUser = async (req, res) => {
     try {
         const email = req.body.email
         const password = req.body.password
@@ -45,7 +47,7 @@ const signInUser = async (req, res) => {
        console.error('Error in signing in user:', err)
     }
 }
-module.exports={registerUser,signInUser}
+module.exports={ signupUser ,loginUser}
 
 
    
