@@ -12,14 +12,14 @@ const [password, setPassWord] = useState('');
 
 
 
-// const updateProfile=(userId,data)=>{
-//   axios.put(`http://localhost/user/edit/${userId}`,data)
-//   .then((res)=>{
-//     console.log("success")
-//     }
-//   )
-//   .catch((error)=>{console.log("error")})
-// }
+const updateProfile=(userId,data)=>{
+  axios.put(`http://localhost/user/edit/${userId}`,data)
+  .then((res)=>{
+    console.log("success")
+    }
+  )
+  .catch((error)=>{console.log("error")})
+}
 
 
   return (
