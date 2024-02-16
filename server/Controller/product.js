@@ -15,6 +15,13 @@ const GetOnePro=async(req,res) => {
     catch (error) { res.send(error)}
 }
 
+const GetOneByUser=async(req,res) => {
+    try {
+    const result=await Product.findAll({where:{userUserId:req.params.userUserId}})
+    res.json(result)}
+    catch (error) { res.send(error)}
+}
+
 const AddPro = async(req,res) => {
     try {
     const result=await Product.create(req.body)
@@ -24,14 +31,14 @@ const AddPro = async(req,res) => {
 
 const DeletePro = async(req,res) => {
     try {
-    const result=await Product.destroy({where:req.params})
+    const result=await Product.destroy({where:{prodId:req.params.prodId}})
     res.json(result) } 
     catch (error){res.send(error) }
 };
 
 const UpdatePro = async(req,res) => {
     try {
-    const result=await Product.update(req.body,{where:req.params})
+    const result=await Product.update(req.body,{where:{prodId:req.params.prodId}})
     res.json(result)   
     }
      catch (error) {res.send(error)}
@@ -39,4 +46,4 @@ const UpdatePro = async(req,res) => {
 
 
 
-module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro}
+module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser}

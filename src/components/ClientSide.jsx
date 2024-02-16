@@ -14,7 +14,7 @@ const [passWordr, setPasswordr] = useState('');
 
 
 const updateProfile=(userId,data)=>{
-  axios.put(`http://localhost:3000/client/update/${userId}`,data)
+  axios.put(`http://localhost:3000/user/update/${userId}`,data)
   .then((res)=>{
     if(oldPassWord==="147258369" && password===passWordr) {
       console.log("success")

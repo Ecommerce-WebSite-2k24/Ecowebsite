@@ -8,7 +8,7 @@ const productRouter =require('../server/Routes/products')
 
 const clientRouter=require('../server/Routes/ClientRoute')
 
-
+const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
 
 
@@ -20,10 +20,11 @@ app.use(express.static(__dirname + "/public"))
 
 app.use("/api",productRouter)
 
-app.use("/client", clientRouter)
+app.use("/user", clientRouter)
 
-app.use("/",authrouter)
+app.use("/auth",authrouter)
 
+app.use('/category',categoryRouter)
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);
