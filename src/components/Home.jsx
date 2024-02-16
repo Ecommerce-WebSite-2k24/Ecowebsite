@@ -16,7 +16,7 @@ const Home = () => {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
-
+// console.log(object)
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
@@ -24,6 +24,7 @@ const Home = () => {
     <>
     <div class="flex w-4/5 mt-20 p-6 mx-auto">
       <ul class="flex flex-col w-80 max-w-[400px] mx-20 mt-0">
+        
         <li>
           <details class="group">
             <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
@@ -43,7 +44,7 @@ const Home = () => {
             </article>
           </details>
         </li>
-        <li>
+        {/* <li>
           <details class="group">
             <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                 <a href="">Men's Fashion</a>
@@ -118,7 +119,7 @@ const Home = () => {
               <a href="">Groceries & Pets</a>
             </summary>
           </details>
-        </li>
+        </li> */}
       </ul>
       <div className="overflow-hidden relative w-[900px] mt-0 h-[400px] ">
         <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
