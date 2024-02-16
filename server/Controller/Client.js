@@ -7,9 +7,10 @@ module.exports ={
    const lastName=req.body.lastName
    const email=req.body.email
    const newpwd=req.body.password
+   const img =req.body.image
         try {
             const hashpwd = await bycribt.hash(newpwd, 10);
-            const upd = db.User.update({role:role,firstName:firstName,lastName:lastName,email:email,password:hashpwd},{
+            const upd = db.User.update({role:role,firstName:firstName,lastName:lastName,email:email,password:hashpwd,image:img},{
                 where:{userId:req.params.userId}
             });
             res.status(200).json(upd);

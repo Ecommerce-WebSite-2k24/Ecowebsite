@@ -24,6 +24,9 @@ const SellerInfo = (userId) => {
                     Name
                 </th>
                 <th scope="col" className="px-6 py-3">
+                    Profile Pic
+                </th>
+                <th scope="col" className="px-6 py-3">
                     Average Rating
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -39,7 +42,7 @@ const SellerInfo = (userId) => {
 
 
         <tbody>
-            {users.map((user,index)=>{
+            {users.users.map((user,index)=>{
                 if(user.role==="Seller") {
                     return (
                         <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -50,14 +53,17 @@ const SellerInfo = (userId) => {
                             {user.firstName} {user.lastName}
                         </td>
                         <td className="px-6 py-4">
+                            <img src={user.image} alt="" className='w-20 h-20'/>
+                        </td>
+                        <td className="px-6 py-4">
                             4
                         </td>
                         <td className="px-6 py-4">
                         
                         2999
                         </td>
-                        <td className="px-6 py-4">
-                         <p onClick={()=>{
+                        <td className="px-6 py-4"
+                          onClick={()=>{
                             axios.get(`http://localhost:3000/user/get/${user.userId}`)
                             .then((res)=>{console.log(res.data,"singleeeeeeeeeeeeeeeeeeee");
                             setSingle(res.data)
@@ -65,7 +71,7 @@ const SellerInfo = (userId) => {
                              .catch((error)=>console.log("error"))
                           
                           }}> <Products user={user} single={single}/> 
-                            </p> 
+                            
                         </td>
                     </tr>
                     )

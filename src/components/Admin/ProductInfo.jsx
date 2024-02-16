@@ -4,11 +4,12 @@ import Rating from '@mui/material/Rating';
 import {useContext} from 'react'
 import Cont from '../Context/Cont'
 
-const ProductInfo = ({prods}) => {
+const ProductInfo = () => {
     
   
-    const users = useContext(Cont)
-    console.log(users,"prods")
+
+    const prods = useContext(Cont)
+    console.log(prods.prods,"prods")
   return (
     <div className="relative overflow-x-auto">
     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -21,6 +22,9 @@ const ProductInfo = ({prods}) => {
                     Name
                 </th>
                 <th scope="col" className="px-6 py-3">
+                    Images
+                </th>
+                <th scope="col" className="px-6 py-3">
                     Description
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -29,9 +33,6 @@ const ProductInfo = ({prods}) => {
                 <th scope="col" className="px-6 py-3">
                     Ratings
                 </th>
-                <th scope="col" className="px-6 py-3">
-                    Images
-                </th>
             </tr>
         </thead>
 
@@ -39,7 +40,8 @@ const ProductInfo = ({prods}) => {
 
 
         <tbody>
-            {prods.map((prod,index)=>{
+            {prods.prods.map((prod,index)=>{
+                
                 return (
 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -49,16 +51,17 @@ const ProductInfo = ({prods}) => {
                 {prod.name}
                 </td>
                 <td className="px-6 py-4">
+             <img src={prod.images} alt=""  className='w-32 h-24'/>
+                </td>
+                <td className="px-6 py-4">
                     {prod.description}
                 </td>
                 <td className="px-6 py-4">
-                    {prod.price}
+                    ${prod.price}
                 </td>
                 <td className="px-6 py-4">
-             <Box><Rating value={prod.ratings} readOnly /> value ={prod.ratings }</Box>
-                </td>
-                <td className="px-6 py-4">
-             <img src={prod.images} alt=""  className='w-32 h-24'/>
+                    
+             <Box style={{"display":"flex","alignItems":"center"}}><Rating value={prod.ratings} readOnly /> <p> ({prod.ratings })</p></Box>
                 </td>
             </tr>
                 )

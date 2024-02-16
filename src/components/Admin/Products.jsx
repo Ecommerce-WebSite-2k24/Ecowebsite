@@ -4,24 +4,22 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Rating from '@mui/material/Rating';
+import axios from 'axios';
 
-import {useState,useContext} from 'react'
+import {useState,useContext,useEffect} from 'react'
 import Cont from '../Context/Cont'
+import Chartt from './Charts/Chartt';
 const Products = ({user,single}) => {
-
-  // const [single,setSingle]=useState({})
-  // const getone=()=>{
-  //   axios.get(`http://localhost:3000/user/get/${user.userId}`)
-  //   .then((res)=>{console.log(res.data,"single") ;setSingle(res.data)
-  //     setView("Single")
-  //   })
-  //    .catch((error)=>console.log("error"))
-  // }
+const [sellerProducts, setSellerProducts] =useState();
 
 
-// const users = useContext(Cont)
-// console.log(users,'from products')
-// console.log(single,'single from products')
+useEffect((userUserId)=>{
+  axios.get(`http://localhost:3000/api/findproduct/4${userUserId}`)
+  .then((res)=>{console.log(res.data,"prodsbyuserid");setSellerProducts(res.data)})
+  .catch((error)=>{console.log("error")})
+},[])
+
+
     const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
@@ -37,11 +35,11 @@ const Products = ({user,single}) => {
         p: 4,
       };
       
-    //  console.log(single,"from product.jsx")
+  
         
   return (
     <div>
-      {/* {console.log(single,"from product div")} */}
+     
       <Button onClick={handleOpen}>Click here</Button>
 <Modal
   open={open}
@@ -55,10 +53,10 @@ const Products = ({user,single}) => {
     </Typography>
     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
      Joined Since 
-     {/* {single.createdAt}   */}
+     {user.createdAt}  
     </Typography> <br />
     <Rating name="read-only" 
-    // value={single.ratings}  
+    value={user.ratings}  
     readOnly />
   <Typography> <br />
   <p class="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
@@ -99,6 +97,73 @@ const Products = ({user,single}) => {
 
 
 </div>   
+  </Typography>
+  <Typography>
+
+  
+    
+      <Chartt/>
+      {/* <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" className="px-6 py-3">
+                    Id
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Images
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Description
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Ratings
+                </th>
+            </tr>
+        </thead>
+
+
+
+
+        <tbody>
+        {sellerProducts?.map((ele,index)=>{
+                
+                return (
+<tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {ele.prodId}
+                </th>
+                <td className="px-6 py-4">
+                {ele.name}
+                </td>
+                <td className="px-6 py-4">
+             <img src={ele.images} alt=""  className='w-32 h-24'/>
+                </td>
+                <td className="px-6 py-4">
+                    {ele.description}
+                </td>
+                <td className="px-6 py-4">
+                    ${ele.price}
+                </td>
+                <td className="px-6 py-4">
+                    
+             <Box style={{"display":"flex","alignItems":"center"}}><Rating value={ele.ratings} readOnly /> <p> ({ele.ratings })</p></Box>
+                </td>
+            </tr>
+                )
+            })}
+            
+        </tbody>
+    </table>
+      */}
+    
+
+
   </Typography>
   </Box>
 </Modal>

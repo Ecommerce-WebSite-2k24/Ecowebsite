@@ -8,7 +8,7 @@ const productRouter =require('../server/Routes/products')
 
 const clientRouter=require('../server/Routes/ClientRoute')
 
-
+const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
 
 
@@ -24,6 +24,7 @@ app.use("/user", clientRouter)
 
 app.use("/auth",authrouter)
 
+app.use('/category',categoryRouter)
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);

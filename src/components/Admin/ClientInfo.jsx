@@ -3,6 +3,7 @@ import WhishList from '../WhishList'
 import {useContext} from 'react'
 import Cont from '../Context/Cont'
 import Side from './Side'
+import ClientStats from './ClientStats'
 
 const ClientInfo = () => {
     const users = useContext(Cont)
@@ -24,9 +25,7 @@ const ClientInfo = () => {
                 <th scope="col" className="px-6 py-3">
                     User Image
                 </th>
-                <th scope="col" className="px-6 py-3">
-                User Role
-                </th>
+                
                 <th scope="col" className="px-6 py-3">
                 favorite Items 
                 </th>
@@ -43,7 +42,7 @@ const ClientInfo = () => {
 
 
         <tbody>
-        {users.map((user,index)=>{
+        {users.users.map((user,index)=>{
             if(user.role==="Client") {
                 return (
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -55,16 +54,17 @@ const ClientInfo = () => {
                 {user.firstName} {user.lastName} 
             </td>
             <td className="px-6 py-4">
-                <img src={user.image} alt="" className='w-20'/>
+                <img src={user.image} alt="" className='w-20 h-20'/>
             </td>
-            <td className="px-6 py-4">
-            {user.role}
-            </td>
+            
             <td className="px-6 py-4">
                 <WhishList/>
             </td>
             <td className="px-6 py-4">
-                $2999
+                {/* <ClientStats/> */}
+            </td>
+            <td className="px-6 py-4">
+                2000
             </td>
         </tr>
                 )
