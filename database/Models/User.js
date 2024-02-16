@@ -1,7 +1,7 @@
 const connection = require('../index')
 const { DataTypes} = require('sequelize')
 const {Product} = require('./Product')
-
+// const {Category} = require ('./Category')
 const User = connection.define("user", {
     userId:{
         type:DataTypes.INTEGER,
@@ -42,16 +42,8 @@ User.hasMany(Product)
 Product.belongsToMany(User, {through:"wishlist"})
 Product.belongsToMany(User, {through:"cart"})
 
-User.sync({ alter: true });
+// User.sync({ alter: true });
     
-
-const findOne=()=>{
-    User.findAll({where:{
-        id:id
-    }})
-}
-
-
 
 
 
