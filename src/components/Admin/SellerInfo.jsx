@@ -1,8 +1,13 @@
 import React from 'react'
 import Products from './Products'
+import {useContext,useState} from 'react'
+import Cont from '../Context/Cont'
+import axios from 'axios'
 
+const SellerInfo = (userId) => {
+    const [single,setSingle]=useState()
+    const users = useContext(Cont)
 
-const SellerInfo = () => {
   return (
     <>
 
@@ -34,24 +39,39 @@ const SellerInfo = () => {
 
 
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 
-                </th>
-                <td className="px-6 py-4">
-                    Silver
-                </td>
-                <td className="px-6 py-4">
-                    4
-                </td>
-                <td className="px-6 py-4">
-                
-                2999
-                </td>
-                <td className="px-6 py-4">
-                <Products/>
-                </td>
-            </tr>
+            {users.map((user,index)=>{
+                if(user.role==="Seller") {
+                    return (
+                        <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {user.userId}
+                        </th>
+                        <td className="px-6 py-4">
+                            {user.firstName} {user.lastName}
+                        </td>
+                        <td className="px-6 py-4">
+                            4
+                        </td>
+                        <td className="px-6 py-4">
+                        
+                        2999
+                        </td>
+                        <td className="px-6 py-4">
+                         <p onClick={()=>{
+                            axios.get(`http://localhost:3000/user/get/${user.userId}`)
+                            .then((res)=>{console.log(res.data,"singleeeeeeeeeeeeeeeeeeee");
+                            setSingle(res.data)
+                            })
+                             .catch((error)=>console.log("error"))
+                          
+                          }}> <Products user={user} single={single}/> 
+                            </p> 
+                        </td>
+                    </tr>
+                    )
+                }
+            })}
+           
         </tbody>
     </table>
 </div>

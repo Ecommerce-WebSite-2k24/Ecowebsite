@@ -4,7 +4,24 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Rating from '@mui/material/Rating';
-const Products = () => {
+
+import {useState,useContext} from 'react'
+import Cont from '../Context/Cont'
+const Products = ({user,single}) => {
+
+  // const [single,setSingle]=useState({})
+  // const getone=()=>{
+  //   axios.get(`http://localhost:3000/user/get/${user.userId}`)
+  //   .then((res)=>{console.log(res.data,"single") ;setSingle(res.data)
+  //     setView("Single")
+  //   })
+  //    .catch((error)=>console.log("error"))
+  // }
+
+
+// const users = useContext(Cont)
+// console.log(users,'from products')
+// console.log(single,'single from products')
     const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
@@ -20,10 +37,11 @@ const Products = () => {
         p: 4,
       };
       
-     
+    //  console.log(single,"from product.jsx")
         
   return (
     <div>
+      {/* {console.log(single,"from product div")} */}
       <Button onClick={handleOpen}>Click here</Button>
 <Modal
   open={open}
@@ -36,9 +54,12 @@ const Products = () => {
       Stats
     </Typography>
     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-     Joined
+     Joined Since 
+     {/* {single.createdAt}   */}
     </Typography> <br />
-    <Rating name="read-only" value='{value}' readOnly />
+    <Rating name="read-only" 
+    // value={single.ratings}  
+    readOnly />
   <Typography> <br />
   <p class="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
 <div class="flex items-center mt-4">

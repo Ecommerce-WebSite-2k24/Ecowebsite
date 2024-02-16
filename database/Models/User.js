@@ -10,7 +10,7 @@ const User = connection.define("user", {
     },
     role:{
         type:DataTypes.STRING,
-        // allowNull:false
+        allowNull:false
     },
     firstName:{
         type:DataTypes.STRING,
@@ -45,11 +45,11 @@ Product.belongsToMany(User, {through:"cart"})
 User.sync({ alter: true });
     
 
-const findOne=()=>{
-    User.findAll({where:{
-        id:id
-    }})
-}
+// const findOne=()=>{
+//     User.findAll({where:{
+//         id:id
+//     }})
+// }
 
 
 

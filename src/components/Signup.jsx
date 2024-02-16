@@ -14,7 +14,7 @@ const Signup = () => {
 
 
     const signup = () => {
-      axios.post('http://localhost:3000/signup', {
+      axios.post('http://localhost:3000/auth/signup', {
         firstName: firstName,
         lastName: lastName,
         password: password,
