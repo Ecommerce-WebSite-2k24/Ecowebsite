@@ -6,6 +6,7 @@ import MonthProduct from './MonthProduct'
 import OurProduct from './OurProducts'
 import Categories from './Categories'
 import OurProducts from './OurProducts'
+import CartProduct from './CartProduct'
 
 
 const Home = () => {
@@ -142,6 +143,7 @@ const Home = () => {
     <Categories/>
     <MonthProduct/>
     <OurProducts/>
+    <CartProduct/>
     </>
   
   )
