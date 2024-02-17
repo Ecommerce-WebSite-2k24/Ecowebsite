@@ -22,7 +22,7 @@ app.use("/api",productRouter)
 
 app.use("/client", clientRouter)
 
-app.use("/",authrouter)
+app.use("/auth",authrouter)
 
 
 app.listen(PORT, ()=>{

@@ -10,7 +10,7 @@ const User = connection.define("user", {
     },
     role:{
         type:DataTypes.STRING,
-        allowNull:false
+        // allowNull:false
     },
     firstName:{
         type:DataTypes.STRING,

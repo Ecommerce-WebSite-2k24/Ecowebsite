@@ -8,8 +8,13 @@ import Categories from './Categories'
 import OurProducts from './OurProducts'
 
 
-const Home = () => {
-  const images = [img1, img2]
+const Home = (route) => {
+const func = route.changeprod  
+console.log(func);
+
+
+
+const images = [img1, img2]
  
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -140,7 +145,7 @@ const Home = () => {
     </div>
     <Categories/>
     <MonthProduct/>
-    <OurProducts/>
+    <OurProducts func={func} />
     </>
   
   )

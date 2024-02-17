@@ -1,15 +1,17 @@
 const db = require('../../database/Models/User')
-
+const bycribt = require("bcrypt");
 module.exports ={
     updateClient: async (req,res)=>{
-        const firstName = req.body.firstName;
-        const lastName = req.body.lastName;
-        const newpwd = req.body.password;
-        const id = req.params.userId;
+   const firstName=req.body.firstName
+   const lastName=req.body.lastName
+   const email=req.body.email
+   const newpwd=req.body.password
         try {
             const hashpwd = await bycribt.hash(newpwd, 10);
-            const result = db.User.update([firstName,lastName, hashpwd, id]);
-            res.status(200).json(result);
+            const upd = db.User.update({firstName:firstName,lastName:lastName,email:email,password:hashpwd},{
+                where:{userId:req.params.userId}
+            });
+            res.status(200).json(upd);
           } catch (err) {
             console.log(err);
           }
@@ -38,20 +40,13 @@ module.exports ={
     addClient:async(req,res)=>{
         try {
             const result=await db.User.create(req.body)
-            res.json(result);console.log(req.body) } 
-            catch (error) {res.send(error) }
+            res.json(result)
+            console.log(req.body) 
+        } 
+            catch (error) {
+                console.log(err) }
         }
     }
 
-    // update: async (req, res) => {
-    //     const newname = req.body.name;
-    //     const newpwd = req.body.pwd;
-    //     const id = req.params.iduser;
-    //     try {
-    //       const hashpwd = await bycribt.hash(newpwd, 10);
-    //       const result = updateU([newname, hashpwd, id]);
-    //       res.status(200).json(result);
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   },
+    
+      
