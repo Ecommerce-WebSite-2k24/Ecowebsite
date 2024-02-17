@@ -11,6 +11,13 @@ import UsersDetails from './Charts/UsersDetails';
 import SalesBydata from './Charts/SalesBydata'
 import Add from './Add';
 import Products from './Products';
+import Cloud from '../Cloud'
+import Header from './Header';
+
+
+
+
+
 const Admin = () => {
    const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -29,16 +36,18 @@ console.log(categories.categories,"from admin")
 
   return (
     <div>
-     <Side/>
 
-<div className="p-4 sm:ml-96">
-  <div>
-  <Add/> 
-    
-  </div>
+<div 
+// className="p-4 sm:ml-96"
+>
+  <Header/>
+  
+ 
+
 
                
-                  <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+                  <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 w-4/5 ml-auto mr-auto">
+                  <Add/> 
       <div className="grid grid-cols-2 gap-4 mb-4">
         
          <div className="rounded w-auto h-auto bg-gray-50 dark:bg-gray-800">
@@ -48,7 +57,7 @@ console.log(categories.categories,"from admin")
          <UsersDetails/>
          </div>
          <div className="rounded w-auto h-auto bg-gray-50 dark:bg-gray-800">
-         <SalesBydata/> 
+         <SalesBydata/>  
          </div>
       </div>
   

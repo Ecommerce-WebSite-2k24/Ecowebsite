@@ -7,16 +7,18 @@ import OurProduct from './OurProducts'
 import Categories from './Categories'
 import OurProducts from './OurProducts'
 import CartProduct from './CartProduct'
-
+import {useContext} from 'react'
+import Cont from '../components/Context/Cont'
 
 const Home = () => {
   const images = [img1, img2]
  
   const [currentIndex, setCurrentIndex] = useState(0);
-
+const categories =useContext(Cont)
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
+  console.log(categories.categories)
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -25,7 +27,24 @@ const Home = () => {
     <>
     <div class="flex w-4/5 mt-20 p-6 mx-auto">
       <ul class="flex flex-col w-80 max-w-[400px] mx-20 mt-0">
-        <li>
+        
+{categories.categories.map((cat)=>{
+  return (
+    <li>
+          <details class="group">
+            <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
+                <a href="">{cat.content}</a>
+              <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+                </path>
+              </svg>
+            </summary>
+            </details>
+        </li>
+  )
+})}
+        {/* <li>
           <details class="group">
             <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                 <a href="">Woman's Fashion</a>
@@ -34,17 +53,17 @@ const Home = () => {
                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
                 </path>
               </svg>
-            </summary>
-            <article class="px-4 pb-4">
+            </summary> */}
+            {/* <article class="px-4 pb-4">
               <ul class="flex flex-col gap-4 pl-2 mt-4">
                 <li class="flex gap-2">
                   fashion 1 
                 </li>
               </ul>
-            </article>
-          </details>
-        </li>
-        <li>
+            </article> */}
+          {/* </details>
+        </li> */}
+        {/* <li>
           <details class="group">
             <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                 <a href="">Men's Fashion</a>
@@ -119,7 +138,7 @@ const Home = () => {
               <a href="">Groceries & Pets</a>
             </summary>
           </details>
-        </li>
+        </li> */}
       </ul>
       <div className="overflow-hidden relative w-[900px] mt-0 h-[400px] ">
         <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -142,7 +161,7 @@ const Home = () => {
     <Categories/>
     <MonthProduct/>
     <OurProducts/>
-    <CartProduct/>
+    
     </>
   
   )

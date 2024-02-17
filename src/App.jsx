@@ -17,7 +17,10 @@ import Home from "./components/Home.jsx";
 import axios from "axios";
 import Cont from "./components/Context/Cont.jsx";
 import Charts from "./components/Admin/Charts.jsx";
-
+import CartProduct from "./components/CartProduct.jsx";
+import Inbox from "./components/Admin/Inbox.jsx";
+import Seller from "./components/Seller/Seller.jsx"
+import Seller2 from "./components/Seller/Seller2.jsx"
 function App() {
 
 
@@ -36,8 +39,14 @@ useEffect(()=>{
   axios.get('http://localhost:3000/category/getAll')
   .then((res)=>{console.log(res.data,"categoy");setCategories(res.data)})
   .catch((error)=>{console.log("error")})
+ 
 },[])
  
+const getSelProd=(userUserId)=>{
+  axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
+  .then((res)=>{console.log("sellerprods")})
+  .catch((error)=>{console.log("error")})
+}
 
  
 
@@ -71,11 +80,15 @@ useEffect(()=>{
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/cart' element={<Cart/>}/>
   <Route path='/whishList' element={<WhishList/>}/>
+  <Route path='/seller' element={<Seller2/>}/>
+  
   <Route path="/admin" element={<Admin />}/>
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
   <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
+  <Route path="/admin/inbox" element={<Inbox/>}/>
   <Route path="/chart" element={<Charts/>} />
+  <Route path="/CartProduct" element={<CartProduct/>}/>
 </Routes>
 </BrowserRouter>
 </Cont.Provider>   
