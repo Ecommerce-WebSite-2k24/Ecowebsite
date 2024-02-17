@@ -10,7 +10,7 @@ const clientRouter=require('../server/Routes/ClientRoute')
 
 
 const authrouter=require('./Routes/authRoute')
-
+const wishrouter=require('./Routes/wishRoute')
 
 
 app.use(cors())
@@ -24,6 +24,7 @@ app.use("/client", clientRouter)
 
 app.use("/",authrouter)
 
+app.use("/fav",wishrouter)
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);

@@ -2,6 +2,7 @@ const connection = require('../../database/index')
 const { Sequelize, DataTypes } = require("sequelize");
 
 const productSchema = {
+
 prodId:{
     type:DataTypes.INTEGER,
     autoIncrement: true,
