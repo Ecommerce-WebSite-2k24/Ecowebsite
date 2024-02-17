@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import axios from 'axios';
 import {useContext,useState} from 'react'
 import Cont from '../Context/Cont'
-
+import DeleteIcon from '@mui/icons-material/Delete';
 const Add = () => {
     const categories=useContext(Cont)
     const [open, setOpen] = React.useState(false);
@@ -47,7 +47,7 @@ const updateCategory=(catId,content)=>{
 
 return (
 <div>
-<Button onClick={handleOpen}>Click here</Button>
+<Button onClick={handleOpen}>See All categories</Button>
 <Modal
 open={open}
 onClose={handleClose}
@@ -67,7 +67,11 @@ aria-describedby="modal-modal-description"
       return (
         <div className="grid grid-cols-3     gap-4 mb-4">
 <p className='mr-4'> {cat.content}</p>
-<button onClick={()=>{deleteCategory(cat.catId)}}>delete</button>
+{/* <button onClick={()=>{deleteCategory(cat.catId)}}>delete</button> */}
+<DeleteIcon onClick={()=>{deleteCategory(cat.catId)}}/>
+
+
+
 <button onClick={()=>{updateCategory(cat.catId,{content:content})}}> updateProd</button>        
         </div>
         

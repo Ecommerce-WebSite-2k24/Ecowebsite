@@ -23,12 +23,12 @@ price:{
 },
 ratings:{
     type:DataTypes.INTEGER,
+    allowNull:true,
+},
+file:{
+    type:DataTypes.STRING,
     allowNull:false,
-}
-// images:{
-//     type:DataTypes.STRING,
-//     allowNull:false,
-//     }
+    }
 }
 
 const Product= connection.define("product",productSchema)
