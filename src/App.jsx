@@ -13,23 +13,39 @@ import Admin from "./components/Admin/Admin.jsx";
 import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
-import Home from "./components/Home.jsx"
+import Home from "./components/Home.jsx";
+import axios from "axios";
 import Product from './components/Product.jsx';
 import ProductDetails from "./components/ProductDetails.jsx";
-
-
-
-
 
 function App() {
 
 
-const [OneProduct,setOneProduct] = useState({})
+const [clients,setClients]=useState([])
+const[users,setUsers]=useState([])
+const[prods,setProds]=useState([])
+const[categories,setCategories]=useState([])
+
+useEffect(()=>{
+  axios.get('http://localhost:3000/client/getAll')
+  .then((res)=>{console.log(res.data);setClients(res.data)})
+  .catch((error)=>{console.log("error")})
+  axios.get('http://localhost:3000/user/getAll')
+  .then((res)=>{console.log(res.data,"useerssssssssss");setUsers(res.data)})
+  .catch((error)=>{console.log("error")})
+  axios.get('http://localhost:3000/api/product')
+  .then((res)=>{console.log(res.data,"prods");setProds(res.data)})
+  .catch((error)=>{console.log("error")})
+  axios.get('http://localhost:3000/category/getAll')
+  .then((res)=>{console.log(res.data,"categoy");setCategories(res.data)})
+  .catch((error)=>{console.log("error")})
+},[])
+ 
+
+ 
 
   
-     const changeprod=(x)=>{
-       setOneProduct(x)
-     }
+      
      
   
   return (
@@ -43,6 +59,8 @@ const [OneProduct,setOneProduct] = useState({})
         <a href="/cart">cart</a>
         <a href="/wishList">whishlist</a>
         </div> */}
+<Cont.Provider value={{users:users,prods:prods,categories:categories}}>       
+
 <BrowserRouter>
 <Routes>
   <Route path='editprofil' element={<ClientSide/>}/>
@@ -54,22 +72,19 @@ const [OneProduct,setOneProduct] = useState({})
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/cart' element={<Cart/>}/>
+  <Route path='/whishList' element={<WhishList/>}/>
+  <Route path="/admin" element={<Admin clients={clients}/>}/>
   <Route path='/whishList' element={<WhishList/>}/> 
    <Route path='/Details' element={<ProductDetails OneProduct={OneProduct}/>}/>
   <Route path='/Product' element={<Product  />}/>
 
-
-  {/* <Route path='/categpries' element={<Categories/>}/> */}
- 
-  
-
-
-  <Route path="/admin" element={<Admin/>}/>
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
-  <Route path="/admin/productInfo" element={<ProductInfo/>}/>
+  <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
+  <Route path="/chart" element={<Charts/>} />
 </Routes>
 </BrowserRouter>
+</Cont.Provider>   
 
       </header>
 

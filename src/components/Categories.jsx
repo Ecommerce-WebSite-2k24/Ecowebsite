@@ -17,12 +17,12 @@ const Categories = () => {
             </div> 
             <h1 class="text-black font-bold text-4xl	">Browse By Category</h1>
             <div class="flex justify-center w-fill h-60 mt-10">
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={phone} alt="" /></a>
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={computer} alt="" /></a>
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={smartwatch} alt="" /></a>
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={camera} alt="" /></a>
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={headphones} alt="" /></a>
-                <a href=""><img class=" hover:bg-red-500 h-60 p-4" src={gaming} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={phone} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={computer} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={smartwatch} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={camera} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={headphones} alt="" /></a>
+                <a href=""><img class=" hover:bg-red-400 h-60 p-4" src={gaming} alt="" /></a>
             </div>     
         </div>
     </div>
