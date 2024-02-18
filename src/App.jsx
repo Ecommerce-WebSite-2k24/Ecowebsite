@@ -8,14 +8,14 @@ import Signup from "./components/Signup.jsx";
 import Contact from "./components/Contact.jsx";
 import About from "./components/About.jsx";
 import Cart from "./components/Cart.jsx";
-import WhishList from "./components/WhishList.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
 import Home from "./components/Home.jsx";
 import axios from "axios";
-
+import AboutUS from "./components/AboutUS.jsx";
+import WhishList from "./components/WhishList.jsx";
 function App() {
 
 
@@ -64,6 +64,8 @@ useEffect(()=>{
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
   <Route path="/admin/productInfo" element={<ProductInfo/>}/>
+  <Route path="/aboutUS" element={<AboutUS/>}/>
+  <Route path="/wishlist" element={<WhishList/>}/>
 </Routes>
 </BrowserRouter>
       </header>

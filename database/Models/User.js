@@ -1,7 +1,7 @@
 const connection = require('../index')
 const { DataTypes} = require('sequelize')
 const {Product} = require('./Product')
-
+const {wishlist} = require('./WishList')
 const User = connection.define("user", {
  
     userId:{
@@ -41,7 +41,11 @@ const User = connection.define("user", {
 
 
 User.hasMany(Product)
-Product.belongsToMany(User, {through:"wishlist"})
+Product.belongsTo(User);
+
+wishlist.belongsTo(User,{foreignKey:'userId'})
+wishlist.belongsTo(Product,{foreignKey:'productId'})
+
 Product.belongsToMany(User, {through:"cart"})
 
 User.sync({ alter: true });
@@ -58,6 +62,5 @@ const findOne=()=>{
 
 
 module.exports={
-
    User
 }

@@ -1,8 +1,16 @@
 import rectangle from '../assets/rectangle.png'
 import coat from '../assets/coat.png'
 import React from 'react'
+import axios from 'axios'
+
 
 const OurProducts = () => {
+
+    const addwish=(obj)=>{
+        axios.post('http://localhost:3000/fav/add',obj)
+        .then(r=>console.log('addded')).catch(err=>console.log(err))
+      }
+
   return (
     <div class="relative w-4/5 mt-20 p-8 mx-auto">
         <div class="gap-20">

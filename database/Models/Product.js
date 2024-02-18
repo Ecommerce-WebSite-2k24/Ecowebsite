@@ -1,5 +1,6 @@
 const connection = require('../../database/index')
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize")
+const{mysql2}=require("mysql2")
 
 const productSchema = {
 

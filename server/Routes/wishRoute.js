@@ -1,10 +1,11 @@
 const wishrouter =  require('express').Router();
-const {UsersFav,AddToFav,RemoveFav}=require('../Controller/wishList')
+const {getAll,add ,del}=require('../Controller/wishList')
 
 
 
-wishrouter.get('/getall',UsersFav)
-wishrouter.post('/add',AddToFav)
-wishrouter.delete('/delete',RemoveFav)
+wishrouter.get('/getall',getAll)
+wishrouter.post('/add',add)
+wishrouter.delete('/delete/:id',del)
 
 module.exports= wishrouter;
+getAll,add ,del
