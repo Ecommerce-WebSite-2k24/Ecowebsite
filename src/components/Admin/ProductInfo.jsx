@@ -5,12 +5,21 @@ import {useContext} from 'react'
 import Cont from '../Context/Cont'
 import Header from './Header';
 import Products from './Products';
+import axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
 const ProductInfo = () => {
     
   
 
     const prods = useContext(Cont)
     console.log(prods.prods,"prods")
+
+    const deleteProd=(prodId)=>{
+        axios.delete(`http://localhost:3000/api/product/${prodId}`)
+        .then((res)=>{console.log("deleted")})
+        .catch((error)=>{console.log("error")})
+    }
+
   return (
     <div>
          <Header/> 
@@ -50,7 +59,7 @@ const ProductInfo = () => {
                 return (
 <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {prod.prodId}
+                <DeleteIcon  onClick={()=>{deleteProd(prod.prodId)}}/>   {prod.prodId}
                 </th>
                 <td className="px-6 py-4">
                 {prod.name}

@@ -45,11 +45,20 @@ useEffect(()=>{
  
 },[!refresh])
  
-const getSelProd=(userUserId)=>{
-  axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
-  .then((res)=>{console.log("sellerprods")})
-  .catch((error)=>{console.log("error")})
-}
+// const getSelProd=(userUserId)=>{
+//   axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
+//   .then((res)=>{console.log("sellerprods")})
+//   .catch((error)=>{console.log("error")})
+// }
+
+// const [single,setSingle]=useState({})
+
+// const getOneProd =(prodId)=>{
+//   axios.get(`http://localhost:3000/api/product/${prodId}`)
+//   .then((res)=>{setSingle(res.data);console.log(res.data,"signle")})
+//   .catch((error)=>{console.log("error")})
+// }  
+
 
  
 
@@ -74,15 +83,20 @@ const getSelProd=(userUserId)=>{
 <Cont.Provider value={{users:users,prods:prods,categories:categories}}>       
 <BrowserRouter>
 <Routes>
-  <Route path='editprofil' element={<ClientSide/>}/>
-  <Route path="/signup" element={<Signup/>}/>
-  <Route path="/login" element={<Login/>}/>
   <Route path='/' element={<Home/>}/>
-  <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
+
+  <Route path="/login" element={<Login/>}/>
+  <Route path="/signup" element={<Signup/>}/>
+  {/* <Route path='editprofil' element={<ClientSide/>}/> */}
+  <Route path='/editprofil' element={<ClientSide/>}/>
+
   {/* <Route path='/cart' element={<Cart/>}/> */}
+
   <Route path='/whishList' element={<WhishList/>}/>
+  <Route path="/cartProduct" element={<CartProduct/>}/>
+  
   <Route path='/seller' element={<Seller2/>}/>
   <Route path="/prods" element={<Product/>}/>
   
@@ -93,7 +107,6 @@ const getSelProd=(userUserId)=>{
   <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
   <Route path="/admin/inbox" element={<Inbox/>}/>
   <Route path="/chart" element={<Charts/>} />
-  <Route path="/cartProduct" element={<CartProduct/>}/>
 </Routes>
 </BrowserRouter>
 </Cont.Provider>   
