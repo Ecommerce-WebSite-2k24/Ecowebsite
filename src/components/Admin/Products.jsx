@@ -114,7 +114,7 @@ const deleteProd=(prodId)=>{
                     {ele.description}
                 </td>
                 <td className="px-6 py-4">
-                    ${ele.price}  {ele.categoryCatId} 
+                    ${ele.price}  {ele.categoryCatId} {ele.userUserId}
                 </td>
                 <td className="px-6 py-4">
                     

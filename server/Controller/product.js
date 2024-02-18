@@ -52,7 +52,22 @@ const UpdatePro = async(req,res) => {
         catch (error) {res.send(error)} 
      }
 
+    const updateSellerProd= async (req,res)=>{
+        try {
+            const updated = await Product.update(
+                {
+                    name:req.body.name,
+                    description:req.body.description,
+                    price:req.body.price,
+                    categoryCatId:req.body.categoryCatId,
+                    file:req.body.file,
+            },{where:{prodId:req.params.prodId}})
+            res.json(updated)
+        }
+        catch (error) {res.send(error)} 
+    } 
 
 
 
-module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,UpdateRating}
+
+module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,UpdateRating,updateSellerProd}
