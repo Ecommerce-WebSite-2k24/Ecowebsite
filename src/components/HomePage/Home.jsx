@@ -3,15 +3,21 @@ import React, {useState} from 'react'
 import img1 from '../../assets/banner1.jpg'
 import img2 from '../../assets/banner2.jpg'
 import MonthProduct from './MonthProduct'
-import OurProduct from './OurProducts'
 import Categories from './Categories'
 import OurProducts from './OurProducts'
 import CartProduct from './CartProduct'
 import {useContext} from 'react'
 import Cont from '../Context/Cont'
 
-const Home = () => {
-  const images = [img1, img2]
+const Home = (route) => {
+const func = route.changeprod  
+console.log(func);
+
+const funcky = route.changeCat
+
+
+
+const images = [img1, img2]
  
   const [currentIndex, setCurrentIndex] = useState(0);
 const categories =useContext(Cont)
@@ -158,10 +164,9 @@ const categories =useContext(Cont)
       </div>       
 
     </div>
-    <Categories/>
-    <MonthProduct/>
-    <OurProducts/>
-    
+    <Categories funcky={funcky} />
+    <MonthProduct func={func} />
+    <OurProducts func={func} />
     </>
   
   )

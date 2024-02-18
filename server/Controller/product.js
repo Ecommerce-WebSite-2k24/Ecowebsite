@@ -1,8 +1,17 @@
 const {Product} = require('../../database/Models/Product.js')
+const {Image} = require('../../database/Models/Image.js')
 
 const AllPro = async(req,res) => {
     try {
     const result=await Product.findAll({});
+    res.json(result) }
+     catch (error) {res.send(error) }
+};
+
+
+const AllProSeller = async(req,res) => {
+    try {
+    const result=await Product.findAll({where:{role:req.params.seller}});
     res.json(result) }
      catch (error) {res.send(error) }
 };
@@ -24,7 +33,21 @@ const GetOneByUser=async(req,res) => {
 
 const AddPro = async(req,res) => {
     try {
-    const result=await Product.create(req.body)
+    const result=await Product.create(req.body )
+    res.json(result) } 
+    catch (error) {res.send(error) }
+};
+
+const AddProimg = async(req,res) => {
+    try {
+    const result=await Image.create(req.body)
+    res.json(result) } 
+    catch (error) {res.send(error) }
+};
+
+const getProimg = async(req,res) => {
+    try {
+    const result=await Image.findAll({where:{productProdId:req.params.productProdId}})
     res.json(result) } 
     catch (error) {res.send(error) }
 };
@@ -43,7 +66,7 @@ const UpdatePro = async(req,res) => {
     }
      catch (error) {res.send(error)}
 }
-    
+     
     const UpdateRating=async(req, res)=>{
         try {
             const ratings = await Product.update({ratings:req.body.ratings},{where:{prodId:req.params.prodId}})
@@ -69,5 +92,6 @@ const UpdatePro = async(req,res) => {
 
 
 
+module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,AddProimg,getProimg ,UpdateRating,updateSellerProd}
 
-module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,UpdateRating,updateSellerProd}
+

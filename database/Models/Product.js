@@ -25,9 +25,9 @@ price:{
 },
 ratings:{
     type:DataTypes.INTEGER,
-    allowNull:true,
+    allowNull:false,
 },
-file:{
+imagess:{
     type:DataTypes.STRING,
     allowNull:false,
     }
@@ -36,7 +36,7 @@ file:{
 const Product= connection.define("product",productSchema)
 
 Product.hasMany(Image)
-connection.sync({alter: true})
+// connection.sync({alter: true})
 
 
 
