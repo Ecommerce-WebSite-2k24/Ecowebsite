@@ -8,9 +8,10 @@ const productRouter =require('../server/Routes/products')
 
 const clientRouter=require('../server/Routes/ClientRoute')
 
-
+const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
 const wishrouter=require('./Routes/wishRoute')
+const ImageRouter=require('../server/Routes/ImgRoute')
 
 
 app.use(cors())
@@ -20,11 +21,15 @@ app.use(express.static(__dirname + "/public"))
 
 app.use("/api",productRouter)
 
-app.use("/client", clientRouter)
+app.use("/user", clientRouter)
 
-app.use("/",authrouter)
+app.use("/auth",authrouter)
 
 app.use("/fav",wishrouter)
+
+app.use('/category',categoryRouter)
+
+app.use('/img',ImageRouter)
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);

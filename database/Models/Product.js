@@ -1,6 +1,8 @@
 const connection = require('../../database/index')
 const { Sequelize, DataTypes } = require("sequelize")
 const{mysql2}=require("mysql2")
+// const {Category} = require('./Category')
+const {Image}=require('./Image')
 
 const productSchema = {
 
@@ -23,20 +25,21 @@ price:{
 },
 ratings:{
     type:DataTypes.INTEGER,
-    allowNull:false,
+    allowNull:true,
 },
-images:{
+file:{
     type:DataTypes.STRING,
     allowNull:false,
     }
 }
 
 const Product= connection.define("product",productSchema)
+
+Product.hasMany(Image)
 connection.sync({alter: true})
 
-const fetechAll=()=>{
 
-}
+
 
 module.exports = {
 Product

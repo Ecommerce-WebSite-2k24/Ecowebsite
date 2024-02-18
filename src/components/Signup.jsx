@@ -10,11 +10,11 @@ const Signup = () => {
     const [password, setPassword] = useState("")
     const[age,setAge]=useState(0)
     const [role, setRole] = useState("")
-    console.log(role,firstName,lastName,email,password,age)
+    // console.log(role,firstName,lastName,email,password,age)
 
 
     const signup = () => {
-      axios.post('http://localhost:3000/signup', {
+      axios.post('http://localhost:3000/auth/signup', {
         firstName: firstName,
         lastName: lastName,
         password: password,
