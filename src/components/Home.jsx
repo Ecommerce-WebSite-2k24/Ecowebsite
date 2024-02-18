@@ -142,7 +142,7 @@ const Home = () => {
     <Categories/>
     <MonthProduct/>
     <OurProducts/>
-    <CartProduct/>
+
     </>
   
   )
