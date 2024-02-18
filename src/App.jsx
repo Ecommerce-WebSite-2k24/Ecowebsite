@@ -8,13 +8,14 @@ import Signup from "./components/Signup.jsx";
 import Contact from "./components/NavLinks/Contact.jsx";
 import About from "./components/NavLinks/About.jsx";
 // import Cart from "./components/Cart.jsx";
-import WhishList from "./components/WhishList.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
 import Home from "./components/HomePage/Home.jsx";
 import axios from "axios";
+import AboutUS from "./components/AboutUS.jsx";
+import WhishList from "./components/WhishList.jsx";
 import Cont from "./components/Context/Cont.jsx";
 import Charts from "./components/Admin/Charts.jsx";
 import CartProduct from "./components/HomePage/CartProduct.jsx";
@@ -93,10 +94,6 @@ useEffect(()=>{
   <Route path='/editprofil' element={<ClientSide/>}/>
 
   {/* <Route path='/cart' element={<Cart/>}/> */}
-
-  <Route path='/whishList' element={<WhishList/>}/>
-  <Route path="/cartProduct" element={<CartProduct/>}/>
-  
   <Route path='/seller' element={<Seller2/>}/>
   <Route path="/prods" element={<Product/>}/>
   
@@ -104,6 +101,9 @@ useEffect(()=>{
   <Route path="/admin/userlist" element={<Overview/>}/>
   <Route path='/admin/clientInfo' element={<ClientInfo/>}/> 
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
+  <Route path="/admin/productInfo" element={<ProductInfo/>}/>
+  <Route path="/aboutUS" element={<AboutUS/>}/>
+  <Route path="/wishlist" element={<WhishList/>}/>
   <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
   <Route path="/admin/inbox" element={<Inbox/>}/>
   <Route path="/chart" element={<Charts/>} />

@@ -10,6 +10,7 @@ const clientRouter=require('../server/Routes/ClientRoute')
 
 const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
+const wishrouter=require('./Routes/wishRoute')
 const ImageRouter=require('../server/Routes/ImgRoute')
 
 
@@ -23,6 +24,8 @@ app.use("/api",productRouter)
 app.use("/user", clientRouter)
 
 app.use("/auth",authrouter)
+
+app.use("/fav",wishrouter)
 
 app.use('/category',categoryRouter)
 
