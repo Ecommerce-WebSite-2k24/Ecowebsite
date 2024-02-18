@@ -12,7 +12,7 @@ import UpdateIcon from '@mui/icons-material/Update';
 const Seller2=()=>{
 
  const id = Cookies.get("id")
- console.log(id)
+ console.log(id,"id")
  const prods = useContext(Cont)
 
 

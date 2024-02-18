@@ -7,7 +7,6 @@ import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import Contact from "./components/NavLinks/Contact.jsx";
 import About from "./components/NavLinks/About.jsx";
-// import Cart from "./components/Cart.jsx";
 import WhishList from "./components/WhishList.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import ClientInfo from "./components/Admin/ClientInfo.jsx";

@@ -23,8 +23,9 @@ const Signup = () => {
         role: role,
       })
       .then((result) => {
-        Cookies.set('token', result.data.token)
-        console.log('done', result.data.token)
+        console.log("sing in")
+        // Cookies.set('token', result.data.token)
+        // console.log('done', result.data.token)
       
       })
       .catch((err) => {

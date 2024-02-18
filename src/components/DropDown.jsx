@@ -7,8 +7,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
+import Cookies from 'js-cookie';
+// import {useNavigate} from 'react-router-dom'
+
+
 
 export default function AccountMenu() {
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -29,10 +34,11 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
+      
       <Menu 
       className="text-white  hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         anchorEl={anchorEl}
@@ -40,34 +46,26 @@ export default function AccountMenu() {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        // PaperProps={{
-        //   elevation: 0,
-        //   sx: {
-        //     bgcolor:"red",
-        //     overflow: 'visible',
-        //     filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-        //     mt: 1.5,
-        //     '& .MuiAvatar-root': {
-        //       width: 32,
-        //       height: 32,
-        //       ml: -0.5,
-        //       mr: 1,
-        //     }
-            
-        //   },
-        // }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem >
            Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem >
             <a href="/editprofil"> My account</a>
           
         </MenuItem>
+        <MenuItem onClick={()=>{navigate('/seller')}}>
+            <a href="/seller"> Manage My Products</a>
+          
+        </MenuItem>
+        <MenuItem >
+            <a href="/admin"> Dashboard</a>
+          
+        </MenuItem>
         <MenuItem onClick={handleClose}>
-          <ListItemIcon>
+          <ListItemIcon >
             <Logout fontSize="small" />
           </ListItemIcon>
           Logout

@@ -4,18 +4,18 @@ import coat from '../../assets/coat.png'
 
 const OurProducts = () => {
   return (
-    <div className="relative w-4/5 mt-20 p-8 mx-auto">
+    <div className="relative w-4/5 mt-20 mx-auto">
         <div className="gap-20">
             <div className="flex mt-2 gap-8">
                 <img  className="h-10 w-15 " src={rectangle} alt="" />
                 <h1 className="text-red-500 font-bold text-xl	">Our Products</h1>
             </div>
             <h1 className="text-black font-bold text-4xl">Explore Our Products</h1>
-            <div className="grid grid-cols-4 gap-4 p-8">
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+            <div className="grid grid-cols-4 gap-4">
+                <div className="w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -50,10 +50,10 @@ const OurProducts = () => {
                     </div>
                 </div>
                 </div>
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -87,10 +87,10 @@ const OurProducts = () => {
                     </div>
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -124,10 +124,10 @@ const OurProducts = () => {
                     </div>
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className="rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -162,10 +162,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className="w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -198,10 +198,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -234,10 +234,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -270,10 +270,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -306,10 +306,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -342,10 +342,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -378,10 +378,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">
@@ -414,10 +414,10 @@ const OurProducts = () => {
                     
                 </div>
                 </div> 
-                <div className="p-2 w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
+                <div className=" w-full max-w-sm bg-white rounded-lg dark:bg-gray-800">
                     <div className="bg-slate-100"> 
                         <a href="#" className="bg-black">
-                            <img className="p-8 rounded-t-lg" src={coat} alt="product image" />
+                            <img className=" rounded-t-lg" src={coat} alt="product image" />
                         </a>
                     </div>
                 <div className="px-5 pb-5">

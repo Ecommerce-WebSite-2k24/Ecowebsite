@@ -44,7 +44,6 @@ const updateCategory=(catId,content)=>{
     .catch((error)=>{console.log(error)})
 }
 
-
 return (
 <div>
 <Button onClick={handleOpen}>See All categories</Button>
@@ -67,7 +66,6 @@ aria-describedby="modal-modal-description"
       return (
         <div key={i} className="grid grid-cols-3     gap-4 mb-4">
 <p className='mr-4'> {cat.content}</p>
-{/* <button onClick={()=>{deleteCategory(cat.catId)}}>delete</button> */}
 <DeleteIcon onClick={()=>{deleteCategory(cat.catId)}}/>
 
 
