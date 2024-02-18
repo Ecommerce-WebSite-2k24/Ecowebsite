@@ -65,7 +65,7 @@ aria-describedby="modal-modal-description"
 
 {categories.categories.map((cat,i)=>{
       return (
-        <div className="grid grid-cols-3     gap-4 mb-4">
+        <div key={i} className="grid grid-cols-3     gap-4 mb-4">
 <p className='mr-4'> {cat.content}</p>
 {/* <button onClick={()=>{deleteCategory(cat.catId)}}>delete</button> */}
 <DeleteIcon onClick={()=>{deleteCategory(cat.catId)}}/>

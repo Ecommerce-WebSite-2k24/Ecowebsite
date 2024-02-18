@@ -40,7 +40,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json('Incorrect email or password ')
         }
         const token = await jwt.sign({email: user.email}, secretKey)
-        res.send({token:token}) 
+        res.send({token:token,user:user}) 
     
 
     } catch (err) {

@@ -59,10 +59,10 @@ axios.get(`http://localhost:3000/user/get/${userId}`)
 
 
         <tbody>
-            {users.users.map((user,index)=>{
+            {users.users.map((user,ii)=>{
                 if(user.role==="Seller") {
                     return (
-                        <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <tr key={ii} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {user.userId}
                         </th>

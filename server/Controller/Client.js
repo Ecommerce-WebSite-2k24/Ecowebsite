@@ -10,7 +10,7 @@ module.exports ={
    const img =req.body.image
         try {
             const hashpwd = await bycribt.hash(newpwd, 10);
-            const upd = db.User.update({role:role,firstName:firstName,lastName:lastName,email:email,password:hashpwd,image:img},{
+            const upd = db.User.update({firstName:firstName,lastName:lastName,email:email,password:hashpwd,image:img},{
                 where:{userId:req.params.userId}
             });
             res.status(200).json(upd);
@@ -54,8 +54,27 @@ module.exports ={
         } 
             catch (error) {
                 console.log(err) }
+        },
+
+
+        deleteClient:async(req,res)=>{
+            try {
+                const result=await db.User.destroy({where:{userId:req.params.userId}})
+                res.json(result) } 
+                catch (error){res.send(error) }
+        },
+
+        updateUserRole:async(req,res)=>{
+            try {
+                const role=await db.User.update({role:req.body.role},{
+                    where:{userId:req.params.userId}
+                })
+               res.json(role)
+            }
+            catch (error){res.send(error) }
         }
-    }
+        }
+    
 
     
       

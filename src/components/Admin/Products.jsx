@@ -5,14 +5,13 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Rating from '@mui/material/Rating';
 import axios from 'axios';
-// import Cont from '../Context/Cont'
+
 import {useState,useContext,useEffect} from 'react'
 import Cont from '../Context/Cont'
 import Chartt from './Charts/Chartt';
 import DeleteIcon from '@mui/icons-material/Delete';
 const Products = ({user,single,prod}) => {
 const [sellerProducts, setSellerProducts] =useState();
-
 
 const getSelProd=(userUserId)=>{
     axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
@@ -21,7 +20,7 @@ const getSelProd=(userUserId)=>{
 }
    
 const prods=useContext(Cont)
-console.log(prods.prods,"from product handling")
+
   
 const deleteProd=(prodId)=>{
     axios.delete(`http://localhost:3000/api/product/${prodId}`)
@@ -29,10 +28,6 @@ const deleteProd=(prodId)=>{
     .catch((error)=>{console.log("error")})
 }
   
-
-
-
-
 
     const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
@@ -42,14 +37,12 @@ const deleteProd=(prodId)=>{
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 800,
+        width: 850,
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
       };
-      
- 
         
   return (
     <div>
@@ -73,51 +66,9 @@ const deleteProd=(prodId)=>{
     <Rating name="read-only" 
     value={user.ratings}  
     readOnly />
-  {/* <Typography> <br />
-  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
-<div class="flex items-center mt-4">
-    <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">5 star</a>
-    <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-        <div class="h-5 bg-yellow-300 rounded" style={{"width":"70%"}}></div>
-    </div>
-    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">70%</span>
-</div>
-<div class="flex items-center mt-4">
-    <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">4 star</a>
-    <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-        <div class="h-5 bg-yellow-300 rounded" style={{"width": "17%"}}></div>
-    </div>
-    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">17%</span>
-</div>
-<div class="flex items-center mt-4">
-    <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">3 star</a>
-    <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-        <div class="h-5 bg-yellow-300 rounded" style={{"width": "8%"}}></div>
-    </div>
-    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8%</span>
-</div>
-<div class="flex items-center mt-4">
-    <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">2 star</a>
-    <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-        <div class="h-5 bg-yellow-300 rounded" style={{"width": "4%"}}></div>
-    </div>
-    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">4%</span>
-</div>
-<div class="flex items-center mt-4">
-    <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">1 star</a>
-    <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-        <div class="h-5 bg-yellow-300 rounded" style={{"width": "1%"}}></div>
-    </div>
-    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">1%</span> <br />
-
-
-</div>   
-  </Typography> */}
   <Typography>
 
-  
-    
-    
+
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -145,14 +96,11 @@ const deleteProd=(prodId)=>{
             </tr>
         </thead>
 
-
-
-
         <tbody>
         {prods.prods?.map((ele,index)=>{
                 if(ele.userUserId===user.userId)
                 return (
-<tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+<tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {ele.prodId}
                 </th>
@@ -166,7 +114,7 @@ const deleteProd=(prodId)=>{
                     {ele.description}
                 </td>
                 <td className="px-6 py-4">
-                    ${ele.price} {ele.userUserId}
+                    ${ele.price}  {ele.categoryCatId} 
                 </td>
                 <td className="px-6 py-4">
                     
@@ -183,8 +131,6 @@ const deleteProd=(prodId)=>{
     </table>
      
     
-
-
   </Typography>
   </Box>
 </Modal>
