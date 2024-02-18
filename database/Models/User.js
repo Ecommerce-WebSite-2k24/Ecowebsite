@@ -3,7 +3,7 @@ const { DataTypes} = require('sequelize')
 const {Product} = require('./Product')
 const {wishlist} = require('./WishList')
 const User = connection.define("user", {
- 
+
     userId:{
         type:DataTypes.INTEGER,
         autoIncrement: true,
@@ -49,7 +49,7 @@ wishlist.belongsTo(Product,{foreignKey:'productId'})
 Product.belongsToMany(User, {through:"cart"})
 
 // User.sync({ alter: true });
-   
+
 
 const findOne=()=>{
     User.findAll({where:{
