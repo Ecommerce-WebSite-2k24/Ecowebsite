@@ -26,7 +26,7 @@ export default function Header() {
         }}
       >
         <BottomNavigationAction label="OverView" icon={<PollIcon />} onClick={() => navigate("/admin")}/>
-        <BottomNavigationAction label="Dashboard" icon={<DashboardIcon />} />
+        <BottomNavigationAction label="Dashboard" icon={<DashboardIcon onClick={()=>{navigate("/admin/userlist")}}/>} />
         <BottomNavigationAction label="Inbox" icon={<ForwardToInboxIcon onClick={() => navigate("/admin/inbox")}/>} />
         <BottomNavigationAction label="Sellers" icon={<SellIcon />} onClick={() => navigate("/admin/sellerInfo")}/>
         <BottomNavigationAction label="Clients" icon={<ShoppingBagIcon />} onClick={() => navigate("/admin/clientInfo")}/>

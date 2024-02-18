@@ -3,23 +3,25 @@ import Cloud from '../Cloud'
 import Cont from '../Context/Cont'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Cookies from 'js-cookie';
 const Seller2=()=>{
+
+ const id = Cookies.get("id")
     const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const [view, setView] = useState(false);
   const [refresh, setRefresh] = useState(false);
     
   const categories = useContext(Cont)
-    console.log(categories.categories,"seller")   
+    // console.log(categories.categories,"seller")   
 
 
 const [name, setname] = useState('');
 const [description, setDescription] = useState('');
 const [price, setPrice] = useState('');
 const [images, setImages] = useState('');
-// const [ratings, setRatings] = useState(2.5);
-const [user, setUser] = useState(2);
-const [cat, setCat] = useState(1);
+const [ratings, setRatings] = useState(null);
+const [cat, setCat] = useState('');
 const [file,setFile]=useState('')
 
 
@@ -47,6 +49,7 @@ useEffect(() => {
     }
   })
 }, [refresh])
+// console.log(id,"iddddddd")
 return (
     <section className='p-14 shadow-md '>
     
@@ -70,10 +73,11 @@ return (
  </div>
  
  <div className="relative z-0 w-96 mb-5 group">
-     <select  className="block py-2.5 px-0 w-52 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required >
+     <select  className="block py-2.5 px-0 w-52 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required 
+     onChange={((e)=>{setCat(e.target.value)})} >
      {categories.categories.map((cat,indexx)=>{
         return (
- <option key={indexx} value={cat} onChange={((e)=>{setCat(e.target.value)})} >{cat.content}</option>
+ <option key={indexx} value={cat.catId} >{cat.content}</option>
         )
     })} 
     </select> 
@@ -104,7 +108,7 @@ return (
                 price:price,
                 ratings:ratings,
                 images:images,
-                userUserId:user,
+                userUserId:id,
                 categoryCatId:cat,
                 file:file
           })
