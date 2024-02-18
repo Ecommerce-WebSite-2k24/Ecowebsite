@@ -1,30 +1,47 @@
 import React from 'react'
 import Products from './Products'
-import {useContext,useState} from 'react'
+import {useContext,useState,useEffect} from 'react'
 import Cont from '../Context/Cont'
 import axios from 'axios'
-
-const SellerInfo = (userId) => {
+import Header from './Header'
+const SellerInfo = () => {
     const [single,setSingle]=useState()
     const users = useContext(Cont)
+  const[someProd,setSomeProd]=useState([])
+
+const getUser =(userId)=>{
+axios.get(`http://localhost:3000/user/get/${userId}`)
+.then((res)=>{console.log("singleeeeeeeeeeeeeeeeeeee")})
+.catch((error)=>console.log("error"));
+}
+const getSome =()=>{
+axios.get(`http://localhost:3000/user/get/${userId}`)
+.then((res)=>{console.log("singleeeeeeeeeeeeeeeeeeee")})
+.catch((error)=>console.log("error"));
+}
+
+
+
+
 
   return (
-    <>
+    <div>
 
 
-   
-    <div className="relative overflow-x-auto">
+<Header/> 
+
+<div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 w-4/5 ml-auto mr-auto">
     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" className="px-6 py-3">
-                    id
+                <th scope="col" className="px-6 py-3" >
+                    SellerId
+                </th>
+                <th scope="col" className="px-6 py-3" >
+                    Seller Full Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Profile Pic
+                    
                 </th>
                 <th scope="col" className="px-6 py-3">
                     Average Rating
@@ -42,10 +59,10 @@ const SellerInfo = (userId) => {
 
 
         <tbody>
-            {users.users.map((user,index)=>{
+            {users.users.map((user,ii)=>{
                 if(user.role==="Seller") {
                     return (
-                        <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <tr key={ii} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {user.userId}
                         </th>
@@ -56,21 +73,17 @@ const SellerInfo = (userId) => {
                             <img src={user.image} alt="" className='w-20 h-20'/>
                         </td>
                         <td className="px-6 py-4">
-                            4
+                            4 WishtList Component
                         </td>
                         <td className="px-6 py-4">
                         
                         2999
                         </td>
+
                         <td className="px-6 py-4"
-                          onClick={()=>{
-                            axios.get(`http://localhost:3000/user/get/${user.userId}`)
-                            .then((res)=>{console.log(res.data,"singleeeeeeeeeeeeeeeeeeee");
-                            setSingle(res.data)
-                            })
-                             .catch((error)=>console.log("error"))
+                          onClick={()=>{getUser(user.userId)}}
                           
-                          }}> <Products user={user} single={single}/> 
+                          > <Products user={user} single={single} /> 
                             
                         </td>
                     </tr>
@@ -81,7 +94,7 @@ const SellerInfo = (userId) => {
         </tbody>
     </table>
 </div>
-</>
+</div>
   )
 }
 

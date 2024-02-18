@@ -1,12 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 // import { CookiesProvider, useCookies } from "react-cookie";
 import { Link, useNavigate } from 'react-router-dom';
 import loginimg from '../assets/loginimg.png'
-
+// import Cont from './Context/Cont'
 
 const Login = () => {
+  
+
+  
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -15,9 +18,11 @@ const Login = () => {
      axios.post(`http://localhost:3000/auth/login`, { email: email, password: password })
     .then((result) => {
       Cookies.set('token', result.data.token);
-    
+      Cookies.set("id",result.data.user.userId)
+      console.log(result.data.user.userId,"userId")
+
     console.log("done");
-      navigate('/home');
+      navigate('/seller');
     })
     .catch((err) => {
       console.log(err);
@@ -72,7 +77,7 @@ const Login = () => {
             <button
               type="submit"
               className="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-              onClick={()=>{ loging()}}
+              onClick={()=>{loging()}}
             >
          <Link to='/'>Log in</Link>
             </button>

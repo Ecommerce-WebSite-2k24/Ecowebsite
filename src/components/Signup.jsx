@@ -10,7 +10,7 @@ const Signup = () => {
     const [password, setPassword] = useState("")
     const[age,setAge]=useState(0)
     const [role, setRole] = useState("")
-    console.log(role,firstName,lastName,email,password,age)
+    // console.log(role,firstName,lastName,email,password,age)
 
 
     const signup = () => {
@@ -116,20 +116,20 @@ const Signup = () => {
             <option value="seller">Seller</option>
           </select> */}
 
-<div class="flex items-start"></div>
-              <div class="flex items-start mt-2">
-                <div class="flex items-start">
-                  <div class="flex items-center h-5">
+<div className="flex items-start"></div>
+              <div className="flex items-start mt-2">
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
                     <input
                       id="isClient"
                       type="checkbox"
-                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       onChange={() => setRole("Client")}
                     />
                   </div>
                   <label
-                    for="isClient"
-                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    htmlFor="isClient"
+                    className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     {" "}
                     Client
@@ -137,19 +137,19 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div class="flex items-start mt-2">
-                <div class="flex items-start">
-                  <div class="flex items-center h-5">
+              <div className="flex items-start mt-2">
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
                     <input
                       id="isSeller"
                       type="checkbox"
-                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       onChange={() => setRole("Seller")}
                     />
                   </div>
                   <label
-                    for="isSeller"
-                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    htmlFor="isSeller"
+                    className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     {" "}
                     Seller

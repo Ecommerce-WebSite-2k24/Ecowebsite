@@ -1,9 +1,11 @@
 import React from 'react'
 import wish from '../assets/wish.png'
 import cart from '../assets/cart.png'
-
+import { Link } from "react-router-dom";
+import DropDown from './DropDown';
 
 const Header = () => {
+    // const navigate=useNavigate()
   return (
     <div>
         <div className="bg-black text-white text-center flex ">
@@ -38,10 +40,14 @@ const Header = () => {
                     </div>
                    
                 </div>
-                <div className="flex md:order-2 md:space-x-4">
-                        <img className="w-6 h-6 " src={wish} alt="" />
-                        <img className="w-6 h-6" src={cart} alt="" />
+                <div className="flex items-center md:order-2 md:space-x-4">
+                    <img className="w-6 h-6 " src={wish} alt=""/>
+                    <a href="/cartProduct"> <img className="w-6 h-6" src={cart} alt="" /></a>
+                    <DropDown/> 
                     </div>
+                    
+                       
+                   
             </div>
             <div className="items-center w-full md:flex md:w-auto md:order-1">
                 <ul className="flex font-medium md:space-x-8 ">
