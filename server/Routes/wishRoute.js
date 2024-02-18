@@ -5,7 +5,6 @@ const {getAll,add ,del}=require('../Controller/wishList')
 
 wishrouter.get('/getall',getAll)
 wishrouter.post('/add',add)
-wishrouter.delete('/delete/:id',del)
+wishrouter.delete('/delete/:idWishlist',del)
 
 module.exports= wishrouter;
-getAll,add ,del

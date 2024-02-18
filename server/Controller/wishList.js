@@ -30,7 +30,10 @@ const add = function (req, res) {
   }
 
 const del = function (req, res) {
-  const del= wishlist.destroy({where:{userId:req.params.id}}).then((result)=>{
+  const del= wishlist.destroy({where:
+    {idWishlist:req.params.idWishlist,
+
+  }}).then((result)=>{
     res.json(result)
   })
   .catch((error)=>{
@@ -42,4 +45,4 @@ const del = function (req, res) {
 
 
 
-  module.exports={getAll,add ,del}
+  module.exports={getAll,add,del}

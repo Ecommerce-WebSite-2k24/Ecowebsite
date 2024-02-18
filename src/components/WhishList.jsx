@@ -5,13 +5,28 @@ import rectangle from '../assets/rectangle.png'
 
 const WhishList = ({userID}) => {
     const[wishes,setWishes]=useState([])
-    console.log(userID);
+
 useEffect(()=>{
-         axios.get(`http://localhost:3000/api/wish/getwishes/${userID}`)
-        .then(r=>{
-          console.log('wish',r.data)
-          setWishes(r.data)}).catch(err=>console.log(err))
+         axios.get(`http://localhost:3000/fav/getall/${userID}`)
+        .then(result=>{
+          console.log('wish',result.data)
+          setWishes(result.data)}).catch(err=>console.log(err))
       },[])
+
+const deleted=(obj)=>{
+
+        axios
+          .delete(`http://localhost:3600/fav/delete`, {
+            data: obj,
+          })
+          .then(() => {
+            console.log("deleted fav");
+          })
+          .catch((err) => console.log(err));
+      };
+
+
+
   return (
     <div>
         <h1 className='text-gray-300 ml-20 mt-10'>
@@ -31,7 +46,17 @@ useEffect(()=>{
         <h1>{e.NameWish}</h1>
         <h1>{e.WishPrice}$</h1>
         <img className='w-20 mb-10 mr-10' src={e.WishImage} alt="" />
-
+        <button
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg mt-2"
+                  onClick={() => {
+                    const obj = {
+                        idWishlist:e.idWishlist
+                    };
+                    deleted(obj);
+                  }}
+                >
+                  Delete
+                </button>
         </div>
 
         ))}

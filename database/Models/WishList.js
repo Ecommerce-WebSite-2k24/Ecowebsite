@@ -14,6 +14,6 @@ allowNull: false
 
 
 const wishlist=connection.define('wishlist',WishlistSchema)
-connection.sync({alter: true})
+// connection.sync({alter: true})
 
 module.exports = {wishlist}
