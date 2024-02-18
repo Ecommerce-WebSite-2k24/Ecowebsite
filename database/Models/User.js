@@ -7,7 +7,7 @@ const {wishlist} = require('./WishList')
 // const {Category} = require ('./Category')
 
 const User = connection.define("user", {
- 
+
     userId:{
         type:DataTypes.INTEGER,
         autoIncrement: true,
@@ -53,6 +53,7 @@ wishlist.belongsTo(Product,{foreignKey:'productId'})
 Product.belongsToMany(User, {through:"cart"})
 
 // User.sync({ alter: true });
+
 
 
 
