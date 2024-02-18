@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 import img1 from '../assets/banner1.jpg'
 import img2 from '../assets/banner2.jpg'
 import MonthProduct from './MonthProduct'
-import OurProduct from './OurProducts'
 import Categories from './Categories'
 import OurProducts from './OurProducts'
 import CartProduct from './CartProduct'
@@ -12,6 +11,8 @@ import CartProduct from './CartProduct'
 const Home = (route) => {
 const func = route.changeprod  
 console.log(func);
+
+const funcky = route.changeCat
 
 
 
@@ -144,8 +145,8 @@ const images = [img1, img2]
       </div>       
 
     </div>
-    <Categories/>
-    <MonthProduct/>
+    <Categories funcky={funcky} />
+    <MonthProduct func={func} />
     <OurProducts func={func} />
     </>
   

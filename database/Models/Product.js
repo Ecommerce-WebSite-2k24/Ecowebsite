@@ -24,17 +24,17 @@ price:{
 ratings:{
     type:DataTypes.INTEGER,
     allowNull:false,
-}
-// images:{
-//     type:DataTypes.STRING,
-//     allowNull:false,
-//     }
+},
+imagess:{
+    type:DataTypes.STRING,
+    allowNull:false,
+    }
 }
 
 const Product= connection.define("product",productSchema)
 
 Product.hasMany(Image)
-connection.sync({alter: true})
+// connection.sync({alter: true})
 
 
 

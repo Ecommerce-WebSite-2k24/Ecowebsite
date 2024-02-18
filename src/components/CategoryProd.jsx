@@ -1,41 +1,19 @@
-import React ,{useEffect,useState}from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
 
-
-function Product({func1}) {
-
-    console.log(func1,'hey from product')
-
-    const [productData, setProductData] = useState([]);
-    const navigate = useNavigate();
-
-
- useEffect(() => {
-     axios.get("http://localhost:3000/api/product")
-         .then((response) => {
-           console.log('gg data',response.data);
-             setProductData(response.data);
-
-         })
-         .catch((error) => {
-             console.error("Error fetching :", error);
-         });
-
- }, []);
-
-  
-
-    return (
-           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4   ">
-                {productData.map((el,i)=>{
+function CategoryProd(route) {
+  return (
+    <div>
+        <div>CategoryProd </div>
+        <div>{console.log( route.categories , "trynna find some")}</div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4   ">
+                {route.categories.map((el,i)=>{
                 return(
                     <div key={i} className="bg-gray-100 p-4 rounded-lg px-5 pb-5">
 
 
 
                     <div className="h-48 overflow-hidden mb-2">
-                        <img src={el.imagess} alt={el.name} className="w-full h-full object-cover" onClick={() =>{navigate("/Details",{el:el}); func1(el) }} />
+                        <img src={el.imagess} alt={el.name} className="w-full h-full object-cover"  />
                     </div>
 
 
@@ -62,7 +40,12 @@ function Product({func1}) {
                 </div>)})}
             
         </div>
-    );
+
+
+
+    
+    </div>
+  )
 }
 
-export default Product;
+export default CategoryProd

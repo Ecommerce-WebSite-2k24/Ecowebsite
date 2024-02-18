@@ -1,17 +1,44 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 
 function ProductDetails(route) {
     console.log(route);
+
+const[imagesss,setImagesss] = useState([])
+
+useEffect(()=>{
+    axios.get(`http://localhost:3000/api/productImg/${route.OneProduct.prodId}`)
+    .then((response) => {
+       setImagesss(response.data);
+
+     })
+     .catch((error) => {
+         console.error("Error fetching :", error);
+     })
+
+},[])
+
     return (
-        <div className="flex   ">
-                        <div className=' ml-80' >
-                        <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " > <img src={route.OneProduct.images} alt={route.OneProduct.name} className="w-[170px] h-[138px]" /></div> 
-                       <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " > <img src={route.OneProduct.images} alt={route.OneProduct.name} className="w-[170px] h-[138px]" /></div>
-                       <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " > <img src={route.OneProduct.images} alt={route.OneProduct.name} className="w-[170px] h-[138px]" /></div>
-                       <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " > <img src={route.OneProduct.images} alt={route.OneProduct.name} className="w-[170px] h-[138px]" /></div>
-                       </div>
+        <div>
+        <h1 className="text-3xl font-bold ml-80">the Product</h1>
+    
+    
+
+        <div className="flex mt-20  ">
+           <div> {
+                imagesss.map((el,i)=>{
+                    return (
+                        <div className="p-4 ml-60">
+                        <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " key={i}>
+                            <img src={el.img} alt="img" className="w-[170px] h-[138px]"/>
+                        </div>
+                        </div>
+                    )
+                }
+            )}
+            </div>
             <div className="p-4  border border-gray-300 rounded-md " >
-            <img src={route.OneProduct.images} alt={route.OneProduct.name} className="w-[650px] h-[600px]" />
+            <img src={route.OneProduct.imagess} alt={route.OneProduct.name} className="w-[650px] h-[600px]" />
             </div>
                <div className=' mt-40' >
             <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden ">
@@ -53,6 +80,7 @@ function ProductDetails(route) {
                 </div>
             </div>
             </div>
+        </div>
         </div>
     );
 }

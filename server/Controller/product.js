@@ -1,4 +1,5 @@
 const {Product} = require('../../database/Models/Product.js')
+const {Image} = require('../../database/Models/Image.js')
 
 const AllPro = async(req,res) => {
     try {
@@ -32,7 +33,21 @@ const GetOneByUser=async(req,res) => {
 
 const AddPro = async(req,res) => {
     try {
-    const result=await Product.create(req.body)
+    const result=await Product.create(req.body )
+    res.json(result) } 
+    catch (error) {res.send(error) }
+};
+
+const AddProimg = async(req,res) => {
+    try {
+    const result=await Image.create(req.body)
+    res.json(result) } 
+    catch (error) {res.send(error) }
+};
+
+const getProimg = async(req,res) => {
+    try {
+    const result=await Image.findAll({where:{productProdId:req.params.productProdId}})
     res.json(result) } 
     catch (error) {res.send(error) }
 };
@@ -54,4 +69,4 @@ const UpdatePro = async(req,res) => {
 
 
 
-module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser}
+module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,AddProimg,getProimg }

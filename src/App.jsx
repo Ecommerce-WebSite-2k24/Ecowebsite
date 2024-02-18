@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
@@ -17,7 +17,9 @@ import Home from "./components/Home.jsx";
 import axios from "axios";
 import Product from './components/Product.jsx';
 import ProductDetails from "./components/ProductDetails.jsx";
-
+import Charts from "../src/components/Admin/Charts/Chartt.jsx";
+import Cloud from "./components/Cloud.jsx";
+import CategoryProd from "./components/CategoryProd.jsx";
 function App() {
 
 
@@ -25,6 +27,21 @@ const [clients,setClients]=useState([])
 const[users,setUsers]=useState([])
 const[prods,setProds]=useState([])
 const[categories,setCategories]=useState([])
+
+
+const [OneProduct,setOneProduct] = useState({})
+
+  
+     const changeprod=(x)=>{
+       setOneProduct(x)}
+
+      const changeCat =(y)=>{
+        setCategories(y)
+        console.log('cat');
+      }  
+
+
+
 
 useEffect(()=>{
   axios.get('http://localhost:3000/client/getAll')
@@ -59,7 +76,7 @@ useEffect(()=>{
         <a href="/cart">cart</a>
         <a href="/wishList">whishlist</a>
         </div> */}
-<Cont.Provider value={{users:users,prods:prods,categories:categories}}>       
+{/* <Cont.Provider value={{users:users,prods:prods,categories:categories}}>        */}
 
 <BrowserRouter>
 <Routes>
@@ -67,7 +84,7 @@ useEffect(()=>{
   <Route path="/signup" element={<Signup/>}/>
   <Route path="/login" element={<Login/>}/>
 
-  <Route path='/' element={<Home changeprod={changeprod}/>}/>
+  <Route path='/' element={<Home changeprod={changeprod} changeCat={changeCat} />}/>
   <Route path='/editprofil' element={<ClientSide/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/contact' element={<Contact/>}/>
@@ -82,12 +99,15 @@ useEffect(()=>{
   <Route path="/admin/sellerInfo" element={<SellerInfo/>}/> 
   <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
   <Route path="/chart" element={<Charts/>} />
+  <Route path="/CategoryProd" element={<CategoryProd categories={categories} />} />
+
+
 </Routes>
 </BrowserRouter>
-</Cont.Provider>   
+{/* </Cont.Provider>    */}
 
       </header>
-
+      <Cloud/>
       <Footer/>
 
     </div>
