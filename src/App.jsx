@@ -28,7 +28,7 @@ import Overview from "./components/Admin/Overview.jsx";
 function App() {
 
 
-const [clients,setClients]=useState([])
+// const [clients,setClients]=useState([])
 const[users,setUsers]=useState([])
 const[prods,setProds]=useState([])
 const[categories,setCategories]=useState([])
@@ -51,9 +51,6 @@ const [OneProduct,setOneProduct] = useState({})
 
 useEffect(()=>{
   axios.get('http://localhost:3000/client/getAll')
-  .then((res)=>{console.log(res.data);setClients(res.data)})
-  .catch((error)=>{console.log("error")})
-  axios.get('http://localhost:3000/user/getAll')
   .then((res)=>{console.log(res.data,"useerssssssssss");setUsers(res.data)})
   .catch((error)=>{console.log("error")})
   axios.get('http://localhost:3000/api/product')
@@ -65,19 +62,7 @@ useEffect(()=>{
  
 },[!refresh])
  
-// const getSelProd=(userUserId)=>{
-//   axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
-//   .then((res)=>{console.log("sellerprods")})
-//   .catch((error)=>{console.log("error")})
-// }
 
-// const [single,setSingle]=useState({})
-
-// const getOneProd =(prodId)=>{
-//   axios.get(`http://localhost:3000/api/product/${prodId}`)
-//   .then((res)=>{setSingle(res.data);console.log(res.data,"signle")})
-//   .catch((error)=>{console.log("error")})
-// }  
 
 
  
@@ -137,7 +122,7 @@ useEffect(()=>{
 </BrowserRouter>
 </Cont.Provider>
       </header>
-      <Cloud/>
+      {/* <Cloud/> */}
       <Footer/>
 
     </div>

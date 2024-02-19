@@ -50,9 +50,9 @@ User.hasMany(Product)
 wishlist.belongsTo(User,{foreignKey:'userId'})
 wishlist.belongsTo(Product,{foreignKey:'productId'})
 
-Product.belongsToMany(User, {through:"cart"})
 
-// User.sync({ alter: true });
+
+User.sync({ alter: true });
 
 
 

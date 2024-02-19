@@ -12,7 +12,7 @@ import UpdateIcon from '@mui/icons-material/Update';
 const Seller2=()=>{
 
  const id = Cookies.get("id")
- console.log(id)
+ console.log(id,"id")
  const prods = useContext(Cont)
 
 
@@ -28,7 +28,7 @@ const Seller2=()=>{
 const [name, setname] = useState('');
 const [description, setDescription] = useState('');
 const [price, setPrice] = useState('');
-const [images, setImages] = useState('');
+// const [images, setImages] = useState('');
 const [ratings, setRatings] = useState(null);
 const [cat, setCat] = useState('');
 const [file,setFile]=useState('')
@@ -174,7 +174,7 @@ return (
      onChange={((e)=>{setCat(e.target.value)})} >
      {categories.categories.map((cat,indexx)=>{
         return (
- <option key={indexx} value={cat.catId} >{cat.content}</option>
+ <option key={indexx} value={cat.catId} >{cat.catId}</option>
         )
     })} 
     </select> 
@@ -201,14 +201,14 @@ return (
       <button className="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
         onClick={()=>{
           addProd({
-                name: name,
-                description: description,
-                price:price,
-                ratings:ratings,
-                images:images,
-                userUserId:id,
-                categoryCatId:cat,
-                file:file
+            name: name,
+            description: description,
+            price:price,
+            ratings:ratings,
+            imagess:file,
+            userUserId:id,
+            categoryCatId:cat,
+            
           })
         }}
       >add

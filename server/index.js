@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/public"))
 
 app.use("/api",productRouter)
 
-app.use("/user", clientRouter)
+app.use("/client", clientRouter)
 
 app.use("/auth",authrouter)
 

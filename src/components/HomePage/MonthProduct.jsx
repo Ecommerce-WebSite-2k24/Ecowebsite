@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import rectangle from '../assets/rectangle.png';
+import rectangle from '../../assets/rectangle.png';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 

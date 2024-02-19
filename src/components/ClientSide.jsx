@@ -17,10 +17,10 @@ console.log(id,"userid")
 const updateProfile=(userId,data)=>{
   axios.put(`http://localhost:3000/user/update/${userId}`,data)
   .then((res)=>{
-    if(oldPassWord==="147258369" && password===passWordr) {
+    if(oldPassWord===user.password && password===passWordr) {
       console.log("success")
     }
-  }
+  } 
   )
   .catch((error)=>{console.log("error")})
 }

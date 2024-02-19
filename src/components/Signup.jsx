@@ -23,6 +23,7 @@ const Signup = () => {
         role: role,
       })
       .then((result) => {
+        console.log("sing in")
         Cookies.set('token', result.data.token)
         console.log('done', result.data.token)
       

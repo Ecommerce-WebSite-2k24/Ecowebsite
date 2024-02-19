@@ -36,7 +36,7 @@ imagess:{
 const Product= connection.define("product",productSchema)
 
 Product.hasMany(Image)
-// connection.sync({alter: true})
+connection.sync({alter: true})
 
 
 

@@ -3,8 +3,8 @@ import axios from 'axios'
 
 import rectangle from '../../assets/rectangle.png'
 import coat from '../../assets/coat.png'
-
-import Product from './Product'
+import Product from '../Product'
+// import Product from './Product'
 
 const OurProducts = ({func}) => {
 
@@ -14,7 +14,7 @@ const OurProducts = ({func}) => {
       }
 
   return (
-    <div className="relative w-4/5 mt-20 p-8 mx-auto">
+    <div className="relative w-4/5 mt-20 mx-auto">
         <div className="gap-20">
             <div className="flex mt-2 gap-8">
                 <img  className="h-10 w-15 " src={rectangle} alt="" />

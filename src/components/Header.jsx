@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import DropDown from './DropDown';
 
 const Header = () => {
-    // const navigate=useNavigate()
+    
   return (
     <div>
         <div className="bg-black text-white text-center flex ">
