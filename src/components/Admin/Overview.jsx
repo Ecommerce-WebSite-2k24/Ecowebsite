@@ -11,14 +11,14 @@ const Overview = () => {
 const [role,setRole]=useState('')
 
     const deleteUser=(userId)=>{
-        axios.delete(`http://localhost:3000/user/delete/${userId}`)
+        axios.delete(`http://localhost:3000/client/delete/${userId}`)
         .then((res)=>{console.log("deleted")})
         .catch((error)=>{console.log("error")})
     }
 
 
     const UpdateUserStatus=(userId,obj)=>{
-        axios.put(`http://localhost:3000/user/updateRole/${userId}`,obj)
+        axios.put(`http://localhost:3000/client/updateRole/${userId}`,obj)
         .then((res)=>{console.log("updated")})
         .catch((error)=>{console.log("error UPD")})
     }

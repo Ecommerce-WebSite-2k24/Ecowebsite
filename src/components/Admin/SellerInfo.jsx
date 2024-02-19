@@ -10,12 +10,12 @@ const SellerInfo = () => {
   const[someProd,setSomeProd]=useState([])
 
 const getUser =(userId)=>{
-axios.get(`http://localhost:3000/user/get/${userId}`)
+axios.get(`http://localhost:3000/client/get/${userId}`)
 .then((res)=>{console.log("singleeeeeeeeeeeeeeeeeeee")})
 .catch((error)=>console.log("error"));
 }
 const getSome =()=>{
-axios.get(`http://localhost:3000/user/get/${userId}`)
+axios.get(`http://localhost:3000/client/get/${userId}`)
 .then((res)=>{console.log("singleeeeeeeeeeeeeeeeeeee")})
 .catch((error)=>console.log("error"));
 }

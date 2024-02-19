@@ -2,7 +2,7 @@ import React from 'react'
 import WhishList from '../WhishList'
 import {useContext} from 'react'
 import Cont from '../Context/Cont'
-import Side from './Side'
+// import Side from './Side'
 import ClientStats from './ClientStats'
 import Header from './Header'
 const ClientInfo = () => {
@@ -58,10 +58,9 @@ const ClientInfo = () => {
             </td>
             
             <td className="px-6 py-4">
-                <WhishList/>
+           
             </td>
             <td className="px-6 py-4">
-                {/* <ClientStats/> */}
             </td>
             <td className="px-6 py-4">
                 2000

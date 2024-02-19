@@ -24,8 +24,8 @@ const Signup = () => {
       })
       .then((result) => {
         console.log("sing in")
-        // Cookies.set('token', result.data.token)
-        // console.log('done', result.data.token)
+        Cookies.set('token', result.data.token)
+        console.log('done', result.data.token)
       
       })
       .catch((err) => {

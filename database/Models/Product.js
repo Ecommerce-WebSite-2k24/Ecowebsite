@@ -1,9 +1,11 @@
 const connection = require('../../database/index')
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize")
+const{mysql2}=require("mysql2")
 // const {Category} = require('./Category')
 const {Image}=require('./Image')
 
 const productSchema = {
+
 prodId:{
     type:DataTypes.INTEGER,
     autoIncrement: true,
@@ -23,9 +25,9 @@ price:{
 },
 ratings:{
     type:DataTypes.INTEGER,
-    allowNull:true,
+    allowNull:false,
 },
-file:{
+imagess:{
     type:DataTypes.STRING,
     allowNull:false,
     }

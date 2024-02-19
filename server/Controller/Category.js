@@ -1,6 +1,19 @@
+const {Product} = require('../../database/Models/Product.js')
 const db = require('../../database/Models/Category')
 
 module.exports ={
+
+   getCategoryzProd : async(req,res)=>{
+        try{
+            const category=await Product.findAll({where:{categoryCatId:req.params.categoryCatId}})
+            res.json(category)
+        }
+        catch (error) {res.send(error) }
+    },
+
+
+
+
     addCategory: async(req,res)=>{
         try {
             const addition = db.Category.create(req.body)

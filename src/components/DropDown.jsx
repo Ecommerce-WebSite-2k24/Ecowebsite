@@ -56,7 +56,7 @@ export default function AccountMenu() {
             <a href="/editprofil"> My account</a>
           
         </MenuItem>
-        <MenuItem onClick={()=>{navigate('/seller')}}>
+        <MenuItem >
             <a href="/seller"> Manage My Products</a>
           
         </MenuItem>
