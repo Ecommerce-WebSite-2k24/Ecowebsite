@@ -33,7 +33,7 @@ file:{
     }
 }
 
-const Product= connection.define("product",productSchema)
+const Product= connection.define("product",productSchema,{timestamps:false})
 
 Product.hasMany(Image)
 connection.sync({alter: true})

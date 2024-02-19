@@ -24,6 +24,7 @@ import Seller from "./components/Seller/Seller.jsx"
 import Seller2 from "./components/Seller/Seller2.jsx"
 import Overview from "./components/Admin/Overview.jsx";
 import Product from "./components/Product.jsx";
+import Ntf from "./components/Ntf.jsx";
 function App() {
 
 
@@ -107,6 +108,7 @@ useEffect(()=>{
   <Route path="/admin/productInfo" element={<ProductInfo prods={prods}/>}/>
   <Route path="/admin/inbox" element={<Inbox/>}/>
   <Route path="/chart" element={<Charts/>} />
+  <Route path="/ntf" element={<Ntf/>} />
 </Routes>
 </BrowserRouter>
 </Cont.Provider>   

@@ -41,7 +41,7 @@ const User = connection.define("user", {
         type:DataTypes.STRING,
         allowNull:false
     }
-})
+},{timestamps:false})
 
 
 User.hasMany(Product)

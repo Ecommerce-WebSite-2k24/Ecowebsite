@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import BasicRating from "./Client/Rating";
 function Product() {
@@ -14,6 +15,12 @@ function Product() {
                 console.error("Error fetching :", error);
             });
     }, []);
+
+
+    const addwish=(obj)=>{
+        axios.post('http://localhost:3000/fav/add',obj)
+        .then(r=>console.log('addded')).catch(err=>console.log(err))
+      }
 
     return (
         <div className="container mx-auto">
@@ -30,8 +37,13 @@ function Product() {
                             <div className="text-gray-700">Ratings:<BasicRating prod={product}/> {product.ratings}</div>
                         </div>
                         <div className="flex justify-center">
-                            <button className="bg-black text-white px-14 py-2">Add To Cart</button>
+                            <button className="bg-black text-white px-14 py-2"
+                            >Add To Cart</button>
                         </div> 
+                        <FavoriteIcon onClick={()=> {const obj = {
+                        idWishlist:product.idWishlist
+                    };
+                    addwish(obj);}}/>
                     </div>
                 ))}
             </div>
