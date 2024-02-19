@@ -4,11 +4,11 @@ import { PieChart } from '@mui/x-charts/PieChart';
 
 
 const data = [
-  { id: 0, value: 10, label: 'series A' },
-  { id: 1, value: 15, label: 'series B' },
-  { id: 3, value: 20, label: 'series C' },
-  { id: 4, value: 20, label: 'series C' },
-  { id: 5, value: 20, label: 'series C' },  
+  { id: 0, value: 10, label: 'Gaming' },
+  { id: 1, value: 35, label: 'Electronics' },
+  { id: 3, value: 20, label: 'Auto-Moto' },
+  { id: 4, value: 15, label: 'Fashion' },
+  { id: 5, value: 20, label: 'Sport' },  
 ];
 const Chartt = () => {
   return (

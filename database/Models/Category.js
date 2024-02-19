@@ -14,7 +14,7 @@ content:{
 }
 
 
-const Category= connection.define("category",categorySchema)
+const Category= connection.define("category",categorySchema,{timestamps:false})
 Category.hasMany(Product)
 // connection.sync({alter: true})
 

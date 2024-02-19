@@ -1,18 +1,30 @@
 import React ,{useEffect,useState}from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Cookies from 'js-cookie';
 
 function Product({func1}) {
 
     console.log(func1,'hey from product')
-
+const id = Cookies.get("id")
     const [productData, setProductData] = useState([]);
     const navigate = useNavigate();
 
+    const addwish=(obj)=>{
+        axios.post('http://localhost:3000/fav/add',obj)
+        .then(r=>console.log('addded')).catch(err=>console.log(err))
+      }
+
+      const addtocart=(obj)=>{
+        axios.post('http://localhost:3000/cartt/addOne',obj).then((res)=>
+        console.log(res,'product has been added'))
+        .catch(err=>console.log(err))
+      }
+
 
  useEffect(() => {
-     axios.get("http://localhost:3000/api/product")
+     axios.get("http://localhost:3000/apii/product")
          .then((response) => {
            console.log('gg data',response.data);
              setProductData(response.data);
@@ -35,7 +47,7 @@ function Product({func1}) {
 
 
                     <div className="h-48 overflow-hidden mb-2">
-                        <img src={el.imagess} alt={el.name} className="w-full h-full object-cover" onClick={() =>{navigate("/Details",{el:el}); func1(el) }} />
+                        <img src={el.file} alt={el.name} className="w-full h-full object-cover" onClick={() =>{navigate("/Details",{el:el}); func1(el) }} />
                     </div>
 
 
@@ -43,7 +55,18 @@ function Product({func1}) {
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{el.name}</h5>
                     <div className="flex items-center justify-between">
                         <span className="text-3xl font-bold text-gray-900 dark:text-white">${el.price}</span>
-                        <button className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Add to cart</button>
+                        <button className="bg-black text-white px-14 py-2" onClick={()=>{addtocart(
+                            {  CartQuantity: 10,
+                            userId: 9,
+                            productId: 35
+                            }
+
+                        )}
+                    }>Add To Cart</button>
+                        <FavoriteIcon onClick={()=> {const obj = {
+                        idWishlist:el.idWishlist
+                    };
+                    addwish(obj);}}/>
                     </div>
                     <div className="flex items-center mt-2.5 mb-5">
                         <div className="flex items-center space-x-1 rtl:space-x-reverse">

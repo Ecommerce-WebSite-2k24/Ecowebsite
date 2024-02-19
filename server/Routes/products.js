@@ -5,7 +5,7 @@ productRouter.get('/product',AllPro)
 productRouter.get('/product/:prodId',GetOnePro)
 productRouter.get('/findproduct/:userUserId',GetOneByUser)
 
-productRouter.post('/product',AddPro)
+productRouter.post('/addproduct',AddPro)
 productRouter.post('/productImg',AddProimg)
 productRouter.get('/productImg/:productProdId',getProimg)
 

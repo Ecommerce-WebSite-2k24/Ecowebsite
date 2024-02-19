@@ -41,7 +41,7 @@ const Header = () => {
                    
                 </div>
                 <div className="flex items-center md:order-2 md:space-x-4">
-                    <img className="w-6 h-6 " src={wish} alt=""/>
+                    <a href="/whishList">    <img className="w-6 h-6 " src={wish} alt=""/>  </a>
                     <a href="/cartProduct"> <img className="w-6 h-6" src={cart} alt="" /></a>
                     <DropDown/> 
                     </div>
@@ -55,10 +55,7 @@ const Header = () => {
                         <a href="/" className="block py-2 px-3 text-gray-900 rounded no-underline hover:underline">Home</a>
                     </li>
                     <li>
-                        <a href="/contact" className="block py-2 px-3 text-gray-900 rounded no-underline hover:underline">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/about" className="block py-2 px-3 text-gray-900 rounded no-underline hover:underline">About Us</a>
+                        <a href="/aboutUS" className="block py-2 px-3 text-gray-900 rounded no-underline hover:underline">About Us</a>
                     </li>
                     <li>
                         <a href="/signup" className="block py-2 px-3 text-gray-900 rounded no-underline hover:underline">Sign Up </a>

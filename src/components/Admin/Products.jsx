@@ -14,16 +14,19 @@ const Products = ({user,single,prod}) => {
 const [sellerProducts, setSellerProducts] =useState();
 
 const getSelProd=(userUserId)=>{
-    axios.get(`http://localhost:3000/api/findproduct/${userUserId}`)
+    axios.get(`http://localhost:3000/apii/findproduct/${userUserId}`)
     .then((res)=>{console.log("sellerprods")})
     .catch((error)=>{console.log("error")})
 }
    
 const prods=useContext(Cont)
 
+
+
+
   
 const deleteProd=(prodId)=>{
-    axios.delete(`http://localhost:3000/api/product/${prodId}`)
+    axios.delete(`http://localhost:3000/apii/product/${prodId}`)
     .then((res)=>{console.log("deleted")})
     .catch((error)=>{console.log("error")})
 }

@@ -12,7 +12,7 @@ import ClientInfo from "./components/Admin/ClientInfo.jsx";
 import SellerInfo from "./components/Admin/SellerInfo.jsx";
 import ProductInfo from "./components/Admin/ProductInfo.jsx";
 import Home from "./components/HomePage/Home.jsx";
-import axios from "axios";
+
 import Product from './components/Product.jsx';
 import ProductDetails from "./components/ProductDetails.jsx";
 import Charts from "../src/components/Admin/Charts/Chartt.jsx";
@@ -25,6 +25,9 @@ import CartProduct from "./components/HomePage/CartProduct.jsx";
 import Inbox from "./components/Admin/Inbox.jsx";
 import Seller2 from "./components/Seller/Seller2.jsx"
 import Overview from "./components/Admin/Overview.jsx";
+
+import axios from "axios";
+import Cloudzz from "./components/Cloudzz.jsx";
 function App() {
 
 
@@ -33,7 +36,7 @@ const[users,setUsers]=useState([])
 const[prods,setProds]=useState([])
 const[categories,setCategories]=useState([])
 const[refresh,setRefresh]=useState(false)
-
+const[cart,setCart]=useState([])
 
 const [OneProduct,setOneProduct] = useState({})
 
@@ -53,15 +56,17 @@ useEffect(()=>{
   axios.get('http://localhost:3000/client/getAll')
   .then((res)=>{console.log(res.data,"useerssssssssss");setUsers(res.data)})
   .catch((error)=>{console.log("error")})
-  axios.get('http://localhost:3000/api/product')
+  axios.get('http://localhost:3000/apii/product')
   .then((res)=>{console.log(res.data,"prods");setProds(res.data)})
   .catch((error)=>{console.log("error")})
   axios.get('http://localhost:3000/category/getAll')
   .then((res)=>{console.log(res.data,"categoy");setCategories(res.data)})
   .catch((error)=>{console.log("error")})
+  
  
 },[!refresh])
  
+
 
 
 
@@ -107,7 +112,7 @@ useEffect(()=>{
 
   <Route path='/whishList' element={<WhishList/>}/> 
    <Route path='/Details' element={<ProductDetails OneProduct={OneProduct}/>}/>
-  <Route path='/Product' element={<Product  />}/>
+  <Route path='/Product' element={<Product  />}/> 
   <Route path="/CategoryProd" element={<CategoryProd categories={categories} />} />
 
 
@@ -122,7 +127,7 @@ useEffect(()=>{
 </BrowserRouter>
 </Cont.Provider>
       </header>
-      {/* <Cloud/> */}
+      <Cloudzz/>
       <Footer/>
 
     </div>

@@ -7,7 +7,7 @@ function ProductDetails(route) {
 const[imagesss,setImagesss] = useState([])
 
 useEffect(()=>{
-    axios.get(`http://localhost:3000/api/productImg/${route.OneProduct.prodId}`)
+    axios.get(`http://localhost:3000/apii/productImg/${route.OneProduct.prodId}`)
     .then((response) => {
        setImagesss(response.data);
 
@@ -28,8 +28,8 @@ useEffect(()=>{
            <div> {
                 imagesss.map((el,i)=>{
                     return (
-                        <div className="p-4 ml-60">
-                        <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " key={i}>
+                        <div className="p-4 ml-40">
+                        <div className=" max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden " key={i}>
                             <img src={el.img} alt="img" className="w-[170px] h-[138px]"/>
                         </div>
                         </div>
@@ -37,8 +37,8 @@ useEffect(()=>{
                 }
             )}
             </div>
-            <div className="p-4  border border-gray-300 rounded-md " >
-            <img src={route.OneProduct.imagess} alt={route.OneProduct.name} className="w-[650px] h-[600px]" />
+            <div className=" border border-gray-100 rounded-md h-[480px] " >
+            <img src={route.OneProduct.file} alt={route.OneProduct.name} className="w-[650px] h-[480px]" />
             </div>
                <div className=' mt-40' >
             <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden ">

@@ -12,14 +12,14 @@ const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
 const wishrouter=require('./Routes/wishRoute')
 const ImageRouter=require('../server/Routes/ImgRoute')
-
+const cartRouter=require('./Routes/cartRoute')
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(__dirname + "/public"))
 
-app.use("/api",productRouter)
+app.use("/apii",productRouter)
 
 app.use("/client", clientRouter)
 
@@ -30,6 +30,9 @@ app.use("/fav",wishrouter)
 app.use('/category',categoryRouter)
 
 app.use('/img',ImageRouter)
+
+app.use('/cartt', cartRouter)
+
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);
