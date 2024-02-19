@@ -42,8 +42,17 @@ const UpdatePro = async(req,res) => {
     res.json(result)   
     }
      catch (error) {res.send(error)}
-};
+}
+    
+    const UpdateRating=async(req, res)=>{
+        try {
+            const ratings = await Product.update({ratings:req.body.ratings},{where:{prodId:req.params.prodId}})
+            res.json(ratings)
+        }
+        catch (error) {res.send(error)} 
+     }
 
 
 
-module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser}
+
+module.exports={AllPro,GetOnePro,AddPro,DeletePro,UpdatePro,GetOneByUser,UpdateRating}

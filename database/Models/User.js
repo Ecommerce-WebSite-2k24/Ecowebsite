@@ -1,6 +1,8 @@
 const connection = require('../index')
 const { DataTypes} = require('sequelize')
 const {Product} = require('./Product')
+const {wishlist} = require('./WishList')
+const {cart} = require('./cart')
 // const {Category} = require ('./Category')
 const User = connection.define("user", {
     userId:{
@@ -39,8 +41,14 @@ const User = connection.define("user", {
 })
 
 User.hasMany(Product)
-Product.belongsToMany(User, {through:"wishlist"})
+
+wishlist.belongsTo(User,{foreignKey:'userId'})
+wishlist.belongsTo(Product,{foreignKey:'productId'})
+
 Product.belongsToMany(User, {through:"cart"})
+
+cart.belongsTo(User,{foreignKey:'userId'});
+cart.belongsTo(Product,{foreignKey:'productId'})
 
 // User.sync({ alter: true });
     

@@ -10,7 +10,7 @@ const Signup = () => {
     const [password, setPassword] = useState("")
     const[age,setAge]=useState(0)
     const [role, setRole] = useState("")
-    console.log(role,firstName,lastName,email,password,age)
+    // console.log(role,firstName,lastName,email,password,age)
 
 
     const signup = () => {

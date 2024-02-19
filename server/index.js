@@ -10,8 +10,9 @@ const clientRouter=require('../server/Routes/ClientRoute')
 
 const categoryRouter=require('../server/Routes/Category')
 const authrouter=require('./Routes/authRoute')
-
-
+const ImageRouter=require('../server/Routes/ImgRoute')
+const cartRouter=require('./Routes/cartRoute')
+const wishrouter=require('./Routes/wishRoute')
 
 app.use(cors())
 app.use(express.json())
@@ -25,6 +26,12 @@ app.use("/user", clientRouter)
 app.use("/auth",authrouter)
 
 app.use('/category',categoryRouter)
+
+app.use('/img',ImageRouter)
+
+app.use("/fav",wishrouter)
+
+app.use('/cart', cartRouter)
 
 app.listen(PORT, ()=>{
     console.log(`listening on http://localhost:${PORT}`);

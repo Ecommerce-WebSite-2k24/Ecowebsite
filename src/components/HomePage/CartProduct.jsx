@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import coat from '../assets/coat.png';
+import coat from '../../assets/coat.png';
 
 const CartProduct = () => {
   // State to store the quantity
