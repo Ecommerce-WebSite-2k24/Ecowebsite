@@ -14,7 +14,7 @@ img:{
 }
 
 
-const Image= connection.define("image",imageSchema)
+const Image= connection.define("image",imageSchema,{timestamps:false})
 // connection.sync({alter: true})
 
 

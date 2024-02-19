@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import coat from '../../assets/coat.png';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 
 const CartProduct = () => {
-  // State to store the quantity
   const [quantity, setQuantity] = useState(1);
+  const[cart,setCart]=useState([])
 
-  // Function to handle incrementing the quantity
   const incrementQuantity = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
   };
 
-  // Function to handle decrementing the quantity
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(prevQuantity => prevQuantity - 1);
     }
   };
+
+
+
+  const id = Cookies.get("id")
+
+useEffect(()=>{
+         axios.get(`http://localhost:3000/cartt/getAll`).then((res)=>{
+          setCart(res.data)
+          console.log(res.data,"data")})
+          .catch(err=>{console.log(err)})
+      },[])
+
+const deleted=(idCart)=>{
+  axios.delete(`http://localhost:3000/cartt/delete/${idCart}`).then(() => {
+            console.log("deleted from your cart");
+          })
+          .catch((err) => console.log(err));
+      };
 
   return (
     <div className="bg-gray-100 h-screen py-8">
@@ -65,6 +84,66 @@ const CartProduct = () => {
                       <button className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Remove</button>
                     </td>
                   </tr>
+                  <tr>
+                    <td className="py-4">
+                      <div className="flex items-center">
+                        <img className="h-16 w-16 mr-4" src="https://res.cloudinary.com/dnchnaonz/image/upload/v1708311404/mqdu7vub2r5ssgmd4ujl.webp" alt="Product image" />
+                        <span className="font-semibold">dsfdsfd</span>
+                      </div>
+                    </td>
+                    <td className="py-4">$2000</td>
+                    <td className="py-4">
+                      <div className="bg-white border border-gray-200 w-[90px] rounded-lg dark:bg-slate-900 dark:border-gray-700">
+                        <div className="w-full flex justify-between items-center gap-x-1">
+                          <div className="grow py-2 px-3">
+                            <input className="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white" type="text" value={quantity} readOnly />
+                          </div>
+                          <div className="flex flex-col -gap-y-px divide-y divide-gray-200 border-s border-gray-200 dark:divide-gray-700 dark:border-gray-700">
+                            <button type="button" onClick={incrementQuantity} className="size-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-800 dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                              <svg className="flex-shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /></svg>
+                            </button>
+                            <button type="button" onClick={decrementQuantity} className="size-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-800 dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                              <svg className="flex-shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-4">$2000</td>
+                    <td className="py-4">
+                      <button className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Remove</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-4">
+                      <div className="flex items-center">
+                        <img className="h-16 w-16 mr-4" src="https://res.cloudinary.com/dnchnaonz/image/upload/v1708327543/huezmrcfflisj03txkjp.jpg" alt="Product image" />
+                        <span className="font-semibold">nkax Ecouteurs T3</span>
+                      </div>
+                    </td>
+                    <td className="py-4">$$43</td>
+                    <td className="py-4">
+                      <div className="bg-white border border-gray-200 w-[90px] rounded-lg dark:bg-slate-900 dark:border-gray-700">
+                        <div className="w-full flex justify-between items-center gap-x-1">
+                          <div className="grow py-2 px-3">
+                            <input className="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white" type="text" value={quantity} readOnly />
+                          </div>
+                          <div className="flex flex-col -gap-y-px divide-y divide-gray-200 border-s border-gray-200 dark:divide-gray-700 dark:border-gray-700">
+                            <button type="button" onClick={incrementQuantity} className="size-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-800 dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                              <svg className="flex-shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /></svg>
+                            </button>
+                            <button type="button" onClick={decrementQuantity} className="size-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-gray-50 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-800 dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                              <svg className="flex-shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-4">$43</td>
+                    <td className="py-4">
+                      <button className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Remove</button>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -81,7 +160,7 @@ const CartProduct = () => {
                 <h2 className="text-lg font-semibold mb-4">Summary</h2>
                 <div className="flex justify-between mb-2">
                   <span>Subtotal</span>
-                  <span>$260</span>
+                  <span>$2303</span>
                 </div>
                 <div className="flex justify-between mb-2">
                   <span>Shipping</span>
@@ -90,7 +169,7 @@ const CartProduct = () => {
                 <hr className="my-2" />
                 <div className="flex justify-between mb-2">
                   <span className="font-semibold">Total</span>
-                  <span className="font-semibold">$260</span>
+                  <span className="font-semibold">$2303</span>
                 </div>
                 <button className="text-white w-full bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Process to checkout</button>
               </div>

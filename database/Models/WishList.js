@@ -13,7 +13,7 @@ allowNull: false
 }
 
 
-const wishlist=connection.define('wishlist',WishlistSchema)
+const wishlist=connection.define('wishlist',WishlistSchema,{timestamps:false})
 // connection.sync({alter: true})
 
 module.exports = {wishlist}

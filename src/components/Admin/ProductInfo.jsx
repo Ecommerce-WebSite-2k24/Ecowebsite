@@ -15,7 +15,7 @@ const ProductInfo = () => {
     console.log(prods.prods,"prods")
 
     const deleteProd=(prodId)=>{
-        axios.delete(`http://localhost:3000/api/product/${prodId}`)
+        axios.delete(`http://localhost:3000/apii/product/${prodId}`)
         .then((res)=>{console.log("deleted")})
         .catch((error)=>{console.log("error")})
     }

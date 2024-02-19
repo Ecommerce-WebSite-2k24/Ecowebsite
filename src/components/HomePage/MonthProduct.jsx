@@ -10,7 +10,7 @@ const MonthProduct = ({func1}) => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/product")
+        axios.get("http://localhost:3000/apii/product")
             .then((response) => {
                 console.log('Data from rating:', response.data);
                 // Filter products with a rating of 4 and above
@@ -37,7 +37,7 @@ const MonthProduct = ({func1}) => {
 
 
                     <div className="h-48 overflow-hidden mb-2">
-                        <img src={product.imagess} alt={product.name} className="w-full h-full object-cover" onClick={() =>{navigate("/Details",{product:product}); func1(product) }} />
+                        <img src={product.file} alt={product.name} className="w-full h-full object-cover" onClick={() =>{navigate("/Details",{product:product}); func1(product) }} />
                     </div>
 
 

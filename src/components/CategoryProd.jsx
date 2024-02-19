@@ -13,7 +13,7 @@ function CategoryProd(route) {
 
 
                     <div className="h-48 overflow-hidden mb-2">
-                        <img src={el.imagess} alt={el.name} className="w-full h-full object-cover"  />
+                        <img src={el.file} alt={el.name} className="w-full h-full object-cover"  />
                     </div>
 
 

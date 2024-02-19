@@ -33,7 +33,7 @@ const GetOneByUser=async(req,res) => {
 
 const AddPro = async(req,res) => {
     try {
-    const result=await Product.create(req.body )
+    const result=await Product.create(req.body)
     res.json(result) } 
     catch (error) {res.send(error) }
 };
